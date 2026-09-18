@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<title>Terms of Service — WingerApp</title>
+<meta name="description" content="WingerApp Terms of Service (EULA).">
+<link rel="canonical" href="https://wingerapp.com/en/terms">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23191033%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%23f5c84c%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/en/">WingerApp</a>
+  <nav class="site-nav" aria-label="Main">
+      <a href="/en/">Home</a>
+      <a href="/en/privacy-policy">Privacy Policy</a>
+      <a href="/en/terms" aria-current="page">Terms of Service</a>
+      <a href="/kvkk">KVKK Notice (TR)</a>
+      <a href="/acik-riza">Explicit Consent (TR)</a>
+      <a href="/safety">Safety Policy (TR)</a>
+      <a href="/support">Support</a>
+    </nav>
+  <a class="lang-switch" href="/terms" hreflang="tr">Türkçe</a>
+</header>
+<main>
+<p class="last-updated">Last updated: 2026-09-17</p>
+<article><h1>WingerApp Terms of Service — v0 draft</h1>
+<p><strong>Last updated:</strong> 2026-09-17 · <strong>Status:</strong> Draft, pending legal sign-off. Turkish version (<code>terms-of-service.tr.md</code>) is primary; this is meant to be identical in meaning.</p>
+<h2>1. Acceptance</h2>
+<p>By downloading, registering for, or using WingerApp (the &quot;App&quot;), you agree to these Terms of Service and to <code>privacy-policy.en.md</code>.</p>
+<h2>2. Age Requirement — 18+</h2>
+<p>WingerApp is for people <strong>18 years of age or older only</strong>. The youngest age-band option in the registration flow is 18-25 (<code>mobile-app/src/screens/OnboardingScreen.tsx:302</code>); no younger option is offered. Accounts found to belong to someone under 18 are closed immediately. Registration by a minor is not permitted even with parental/guardian consent.</p>
+<h2>3. Account and Identity</h2>
+<ul><li>Your account is tied to a cryptographic identity generated on your device (a DID, Ed25519 key pair); there is no username/password.</li><li>You represent that the information you provide (gender, age band, location, etc.) is accurate. Creating a fake or misleading profile violates these Terms (see §5, §7 — &quot;fake profile&quot; is a report category).</li><li>You are responsible for your account's security, including the physical security of your device; your DID private key is held only on your device — if you lose it, you may lose access to your account.</li></ul>
+<h2>4. Nature of the Service</h2>
+<ul><li>WingerApp is a dating app built on on-device computation. Your profile, preferences, and messages largely stay on your device, as described in <code>privacy-policy.en.md</code>.</li><li><strong>&quot;Night agent negotiation&quot;</strong> is an optional feature that uses an explicit, deterministic/rule-based matching engine (not an LLM-based decision engine); its only possible outcomes are &quot;no match&quot; or &quot;match.&quot; It is not human advice or a guarantee.</li><li><strong>Face verification</strong> is an experimental (beta) feature; it runs entirely on-device and does not claim the reliability of commercial identity-verification systems (see <code>acik-riza-metni.md</code> §3 / <code>privacy-policy.en.md</code> §9).</li><li>WingerApp does not guarantee any user's identity, intentions, or trustworthiness. You must exercise your own judgment and caution around meeting people (see <code>safety-policy.md</code>).</li></ul>
+<h2>5. Prohibited Conduct</h2>
+<p>The following are strictly prohibited and may result in account termination and/or legal action:</p>
+<ul><li>Harassment, threats, bullying, hate speech.</li><li>Creating a fake profile or impersonating another person.</li><li>Fraud, requests for money/gifts, financial exploitation (&quot;romance scams&quot;).</li><li>Attempting to contact a minor, or sharing content involving anyone under 18.</li><li>Sharing inappropriate/obscene content, or non-consensual imagery.</li><li>Using the App for commercial spam, advertising, or unauthorized data collection.</li><li>Abusing the system: artificially multiplying accounts, unauthorized API access, or attempting to bypass safety controls (the Guardian policy engine, the report/block system).</li><li>Promoting violence or illegal activity.</li></ul>
+<p>See <code>safety-policy.md</code> and the in-app <code>ReportBlockScreen</code> for the full category list and reporting flow.</p>
+<h2>6. Moderation, Reporting, and Blocking</h2>
+<ul><li>You can report or block any user from within the App (Report/Block screen). High-risk categories (violence, scam, harassment) both report and block in a single tap.</li><li>Reports are stored in the <code>abuse_reports</code> table and reviewed by our moderation team; even if you delete your account, these records (with the identity link anonymized) may continue to be retained (see <code>privacy-policy.en.md</code> §5-6).</li><li>The Company reserves the right to suspend or terminate any account it reasonably believes has violated these Terms.</li></ul>
+<h2>7. In-App Purchases (IAP)</h2>
+<ul><li>Subscriptions and one-time purchases are processed through the Apple App Store / Google Play; pricing is whatever is displayed by the store at the time of purchase.</li><li>Subscriptions <strong>auto-renew</strong> unless you cancel through your store account settings. Cancellation takes effect at the end of the current period.</li><li>Refund requests are subject to Apple's/Google's own refund policies; the Company does not process refunds directly (purchase-platform infrastructure is used).</li><li>The raw content of your purchase receipt is never stored by the Company; only the verification result and a hash of the receipt are stored (see <code>privacy-policy.en.md</code> §3).</li></ul>
+<h2>8. Intellectual Property</h2>
+<p>The App, its design, and its brand belong to the Company. You retain ownership of your own profile content (photos, bio); you grant us a limited license to use it for the purpose of displaying it within the App — by design, this content stays on your device and is not transferred to Company servers (see <code>privacy-policy.en.md</code> §2).</p>
+<h2>9. Limitation of Liability</h2>
+<ul><li>The App is provided &quot;as is.&quot; The Company is not responsible for the conduct of other users, events occurring during in-person meetings, or the accuracy of information supplied by users.</li><li>Face verification, match scores, and night-agent-negotiation outcomes are not a &quot;trust/safety guarantee&quot;; see <code>safety-policy.md</code>.</li><li>The Company's liability is limited to the maximum extent permitted by applicable law. <code>[VERIFY: legal counsel — compliance with local consumer-protection law]</code>.</li></ul>
+<h2>10. Termination</h2>
+<p>You may close your account at any time, irreversibly, via Settings &gt; Delete Account (see <code>privacy-policy.en.md</code> §6). The Company may also terminate your account for violation of these Terms.</p>
+<h2>11. Changes and Governing Law</h2>
+<p>These Terms may be updated from time to time; material changes will be announced via an in-app notice. Governing law and venue: <code>[VERIFY: legal counsel]</code>.</p>
+<h2>12. Contact</h2>
+<p><code>support@wingerapp.com</code> (see <code>mobile-app/src/config/support.ts::SUPPORT_EMAIL</code>)</p>
+<hr>
+<h2>Related Documents</h2>
+<ul><li><code>privacy-policy.en.md</code> · <code>kvkk-aydinlatma-metni.md</code> · <code>acik-riza-metni.md</code> · <code>safety-policy.md</code></li></ul></article>
+</main>
+<footer class="site-footer">
+  <p>[ŞİRKET ÜNVANI]</p>
+  <p>
+    <a href="/privacy-policy">Privacy Policy</a> ·
+    <a href="/terms">Terms of Service</a> ·
+    <a href="/kvkk">KVKK</a> ·
+    <a href="/acik-riza">Explicit Consent</a> ·
+    <a href="/safety">Safety</a> ·
+    <a href="/support">Support</a>
+  </p>
+  <p><a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
+</footer>
+</body>
+</html>

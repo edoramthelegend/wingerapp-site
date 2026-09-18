@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<title>Güvenlik ve Moderasyon Politikası — WingerApp</title>
+<meta name="description" content="WingerApp kullanıcı güvenliği ve moderasyon politikası.">
+<link rel="canonical" href="https://wingerapp.com/safety">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23191033%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%23f5c84c%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">WingerApp</a>
+  <nav class="site-nav" aria-label="Ana">
+      <a href="/">Ana sayfa</a>
+      <a href="/privacy-policy">Gizlilik Politikası</a>
+      <a href="/terms">Kullanım Koşulları</a>
+      <a href="/kvkk">KVKK Aydınlatma</a>
+      <a href="/acik-riza">Açık Rıza</a>
+      <a href="/safety" aria-current="page">Güvenlik Politikası</a>
+      <a href="/support">Destek</a>
+    </nav>
+  
+</header>
+<main>
+<p class="last-updated">Son güncelleme: 2026-09-17</p>
+<article><h1>WingerApp Güvenlik ve Moderasyon Politikası (Safety Policy) — v0 taslak</h1>
+<p><strong>Son güncelleme:</strong> 2026-09-17 · <strong>Durum:</strong> Taslak. Apple App Review'ın dating app'lerden beklediği &quot;kullanıcı güvenliği&quot; belgesi olarak hazırlanmıştır (Guideline 1.2).</p>
+<h2>1. Kimlik ve Yaş</h2>
+<ul><li>WingerApp yalnızca <strong>18 yaş ve üzeri</strong> kullanıcılara açıktır (bkz. <code>terms-of-service.tr.md</code> §2, <code>age-rating.md</code>).</li><li>Yaş, kullanıcı beyanına dayanır; resmi kimlik doğrulaması yapılmaz (dürüstçe belirtilmelidir, bkz. <code>age-rating.md</code> &quot;Yaş doğrulama mekanizması&quot;).</li><li>Hesaplar kriptografik bir kimlikle (DID, Ed25519) ilişkilendirilir; e-posta/telefon yoktur.</li></ul>
+<h2>2. Profil Fotoğrafı Doğrulama (Yüz Doğrulama — Beta)</h2>
+<ul><li>Kullanıcılar isteğe bağlı olarak, kamera ile canlılık kontrolünden (göz kırpma/baş çevirme/gülümseme) geçen bir yüz doğrulaması yapabilir; doğrulanan profillerde bir rozet gösterilebilir.</li><li><strong>Tamamen cihaz üzerinde</strong> işlenir (Apple Vision / Google ML Kit); görüntü/embedding sunucuya hiç gönderilmez (bkz. <code>privacy-policy.tr.md</code> §2, §9).</li><li><strong>Dürüst sınır:</strong> gerçek bir derin öğrenme yüz-tanıma modeli değildir (geometrik landmark eşleştirmesi); anti-sahtecilik (spoof) tespiti kalibre edilmemiş bir doku-analizi heuristiğidir (<code>memory-bank/Features/Face-Verification.md</code>). Doğrulama rozeti <strong>&quot;bu kişi gerçek ve güncel bir fotoğraf kullanıyor&quot; ihtimalini artıran bir sinyaldir, mutlak bir garanti değildir.</strong> Bu sınır, doğrulama rozetinin yanına kısa bir açıklama olarak eklenmelidir (öneri: &quot;Deneysel doğrulama — %100 garanti değildir&quot;).</li></ul>
+<h2>3. Bildirme (Report) ve Engelleme (Block)</h2>
+<p>Her kullanıcı, herhangi bir profili/sohbeti Ayarlar veya sohbet ekranındaki <strong>Rapor/Engelle</strong> akışından bildirebilir (<code>ReportBlockScreen.tsx</code>).</p>
+<p><strong>Rapor kategorileri</strong> (kod: <code>CommunitySafetyGuardianService.ts</code>, <code>ReportBlockScreen.tsx:39-47</code>):</p>
+<div class="table-wrap"><table><thead><tr><th>Kategori</th><th>Açıklama</th><th>İşlem hızı</th></tr></thead><tbody><tr><td><code>violence</code> (şiddet)</td><td>Şiddet tehdidi/teşviki</td><td><strong>Tek dokunuşla anında rapor + engelle</strong></td></tr><tr><td><code>scam</code> (dolandırıcılık)</td><td>Finansal istismar, &quot;romance scam&quot;</td><td>Tek dokunuşla anında rapor + engelle</td></tr><tr><td><code>harassment</code> (taciz)</td><td>Taciz, tehdit, istenmeyen ısrarcı iletişim</td><td>Tek dokunuşla anında rapor + engelle</td></tr><tr><td><code>spam</code></td><td>İstenmeyen ticari/tekrarlayan içerik</td><td>2. adım onayı</td></tr><tr><td><code>fake_profile</code> (sahte profil)</td><td>Gerçek olmayan kimlik/fotoğraf</td><td>2. adım onayı</td></tr><tr><td><code>inappropriate_content</code> (uygunsuz içerik)</td><td>Müstehcen/rahatsız edici içerik</td><td>2. adım onayı</td></tr><tr><td><code>other</code> (diğer)</td><td>Yukarıdakilere girmeyen durumlar</td><td>2. adım onayı</td></tr></tbody></table></div>
+<ul><li>Yüksek riskli üç kategori (şiddet/dolandırıcılık/taciz) <strong>tek dokunuşla</strong> hem raporlanır hem de bildirdiğiniz kişi otomatik olarak engellenir — ek onay adımı beklenmez, çünkü bu kategorilerde kullanıcı güvenliği sürtünmesiz bir akıştan önce gelir.</li><li>Engellenen kullanıcı sizi bir daha göremez, size mesaj/eşleşme isteği gönderemez; sinyalleşme ve eşleştirme sorguları karşılıklı blok listesini kontrol eder (<code>backend/app/api/location.py::get_nearby</code>, <code>backend/app/models/__init__.py::Block</code>).</li><li>Raporlar <code>abuse_reports</code> tablosunda saklanır, moderasyon ekibi tarafından incelenir (durum: <code>pending</code>/işlenmiş, <code>action_taken</code> alanı) ve hesap silinse dahi kimlik bağı anonimleştirilerek saklanmaya devam eder (bkz. <code>privacy-policy.tr.md</code> §6) — bu, &quot;hesabımı silip rapor geçmişimi silmek&quot; yoluyla kötüye kullanımın gizlenmesini önler.</li></ul>
+<h2>4. Otomatik Politika Denetimi (Guardian)</h2>
+<p>Uygulama içi AI-destekli özellikler (eşleştirme açıklamaları, gece ajan müzakeresi, sohbet önerileri) bir <strong>Guardian politika motoru</strong> tarafından denetlenir — bu motor AI çıktılarının taciz edici, ayrımcı veya güvensiz içerik üretmesini engellemeyi amaçlar (<code>memory-bank/Product-AI-Agents.md</code>, <code>GuardianV6PolicyFreezeTransparencyV2Service.ts</code> ve ilgili servisler). Dürüst sınır: bazı Guardian kontrol noktalarının belirli akışlarda fiilen no-op olduğu (kod incelemesiyle bulunmuş, dokümantasyon düzeltmesi bekleyen) bilinen bir bulgu vardır (<code>memory-bank/Security-Privacy.md</code> S85) — bu, kullanıcıya &quot;Guardian her adımda %100 devrede&quot; gibi mutlak bir güvence dilinde sunulmamalıdır.</p>
+<h2>5. Gece Ajan Müzakeresi — Güvenlik Sınırları</h2>
+<ul><li>Görüşme tamamen deterministik/kural tabanlıdır (LLM karar yolunda değildir), bu yüzden öngörülemez/rastgele içerik üretme riski matching kararında düşüktür.</li><li>Görüşme sırasında serbest metin <strong>asla</strong> iletilmez; yalnızca önceden tanımlı, sabit kategori kodları ve değerleri iletilir (<code>agents/agent-represented-matching.md</code>).</li><li>Görüşme yalnızca her iki tarafın da bu özelliği açıkça etkinleştirmiş olmasını gerektirir (bkz. <code>acik-riza-metni.md</code> §4, <code>privacy-policy.tr.md</code> §7).</li></ul>
+<h2>6. Buluşma Güvenliği — Kullanıcı Tavsiyeleri</h2>
+<p>Uygulama içi bir &quot;buluşma güvenliği&quot; bilgilendirme ekranı (öneri, launch öncesi eklenmeli — <code>[VERIFY: product/mobile-engineer]</code>) şu asgari tavsiyeleri içermelidir:</p>
+<ul><li>İlk buluşmaları halka açık bir yerde yapın.</li><li>Buluşma planınızı güvendiğiniz birine bildirin.</li><li>Kendi ulaşımınızı sağlayın.</li><li>Şüpheli davranış (para talebi, erken aşamada aşırı kişisel bilgi talebi, tutarsız hikaye) gördüğünüzde Rapor/Engelle akışını kullanın.</li><li>Acil bir durumda yerel acil yardım hatlarını arayın; uygulama bir acil durum servisi değildir.</li></ul>
+<h2>7. Şeffaflık Sınırları — Bu Politikanın Kapsamı Dışında Kalanlar</h2>
+<p>Bu belge, <code>memory-bank/Security-Privacy.md</code>, <code>agents/agent-represented-matching.md</code>, backend'in çekirdek router'ları (<code>auth</code>, <code>users</code>, <code>profiles</code>, <code>location</code>, <code>matching</code>, <code>signaling</code>, <code>blocks</code>, IAP, influencer) ve mobil <code>ReportBlockScreen</code>/<code>ConsentManagementV7Service</code> kodunun incelenmesine dayanır. Backend'de bu görev kapsamında tek tek denetlenmeyen <strong>çok sayıda (~200) ek API router'ı</strong> bulunmaktadır (isimlendirmelerinden &quot;analytics&quot;/&quot;telemetry&quot;/&quot;meta&quot;/sürüm numaralı sprint modülleri olduğu anlaşılan) — örnekleme yoluyla incelenen ikisi (<code>data_minimization.py</code>, <code>retention_telemetry_v1.py</code>) gerçek veri kalıcılığı olmayan saplama (stub) kod olduğu görüldü, ancak <strong>tamamı bu görevde doğrulanmadı</strong>. Bu belge ve <code>privacy-policy.tr.md</code>'nin App Store/KVKK gönderimi için nihai kabul edilmeden önce, <code>security-privacy-reviewer</code>'ın backend'deki tüm router'ların gerçek veri toplama davranışını kapsayan tam bir envanter çıkarması önerilir.</p>
+<h2>İlgili Belgeler</h2>
+<ul><li><code>privacy-policy.tr.md</code> / <code>.en.md</code></li><li><code>terms-of-service.tr.md</code> / <code>.en.md</code></li><li><code>age-rating.md</code></li></ul></article>
+</main>
+<footer class="site-footer">
+  <p>[ŞİRKET ÜNVANI]</p>
+  <p>
+    <a href="/privacy-policy">Gizlilik Politikası</a> ·
+    <a href="/terms">Kullanım Koşulları</a> ·
+    <a href="/kvkk">KVKK</a> ·
+    <a href="/acik-riza">Açık Rıza</a> ·
+    <a href="/safety">Güvenlik</a> ·
+    <a href="/support">Destek</a>
+  </p>
+  <p><a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
+</footer>
+</body>
+</html>

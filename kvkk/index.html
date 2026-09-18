@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<title>KVKK Aydınlatma Metni — WingerApp</title>
+<meta name="description" content="6698 sayılı KVKK madde 10 aydınlatma metni.">
+<link rel="canonical" href="https://wingerapp.com/kvkk">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23191033%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%23f5c84c%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">WingerApp</a>
+  <nav class="site-nav" aria-label="Ana">
+      <a href="/">Ana sayfa</a>
+      <a href="/privacy-policy">Gizlilik Politikası</a>
+      <a href="/terms">Kullanım Koşulları</a>
+      <a href="/kvkk" aria-current="page">KVKK Aydınlatma</a>
+      <a href="/acik-riza">Açık Rıza</a>
+      <a href="/safety">Güvenlik Politikası</a>
+      <a href="/support">Destek</a>
+    </nav>
+  
+</header>
+<main>
+<p class="last-updated">Son güncelleme: 2026-09-17</p>
+<article><h1>KVKK Aydınlatma Metni (6698 sayılı Kanun madde 10) — v0 taslak</h1>
+<p><strong>Son güncelleme:</strong> 2026-09-17 · <strong>Durum:</strong> Taslak, hukuki onay bekliyor. <code>[VERIFY]</code> işaretli alanlar avukat/şirket bilgisiyle doldurulmalı.</p>
+<h2>1. Veri Sorumlusunun Kimliği</h2>
+<p><code>[VERIFY: unvan, adres, MERSİS no, KEP adresi]</code> — Winger App (&quot;Şirket&quot;), 6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;) uyarınca veri sorumlusudur.</p>
+<h2>2. İşlenen Kişisel Veriler ve İşlenme Amaçları</h2>
+<p>Bu bölüm, <code>privacy-policy.tr.md</code> §3'te tablo halinde verilen backend veri akışlarının KVKK madde 10 formatındaki özetidir; teknik ayrıntı ve kod kanıtları için o belgeye bakınız.</p>
+<div class="table-wrap"><table><thead><tr><th>Veri kategorisi</th><th>Örnek veri</th><th>İşlenme amacı</th><th>Hukuki sebep (KVKK m.5/m.6)</th></tr></thead><tbody><tr><td>Kimlik/işlem güvenliği</td><td>DID (kendi kendini sertifikleyen anahtar), DID hash'i</td><td>Kimlik doğrulama, oturum yönetimi</td><td>m.5/2-c (sözleşmenin kurulması/ifası)</td></tr><tr><td>Demografik/eşleştirme</td><td>Cinsiyet, <strong>ilgi cinsiyeti</strong>, şehir, ilçe, ülke, yaş bandı</td><td>Eşleştirme adayı filtreleme</td><td>İlgi cinsiyeti alanı özel nitelikli veri (m.6) sayılabilir → <strong>açık rıza</strong> (bkz. <code>acik-riza-metni.md</code> §1); diğerleri m.5/2-c</td></tr><tr><td>Konum</td><td>Şehir (S98, 2026-09-17'den beri: ham enlem/boylam artık sunucuda saklanmıyor — bkz. <code>privacy-policy.tr.md</code> §1)</td><td>Şehir eşleştirmesi</td><td>m.5/2-c</td></tr><tr><td>Eşleşme sonucu</td><td>Hash çifti + {eşleşme yok, eşleşme}</td><td>Karşılıklı eşleşme tespiti, sohbet yetkilendirmesi</td><td>m.5/2-c</td></tr><tr><td>İletişim/bildirim</td><td>Push bildirim token'ı</td><td>Bildirim gönderimi</td><td>m.5/2-c</td></tr><tr><td>Ödeme</td><td>Plan, tutar, durum, makbuz hash'i</td><td>Satın alma doğrulama, muhasebe/vergi</td><td>m.5/2-ç (hukuki yükümlülük), m.5/2-c</td></tr><tr><td>Güvenlik/moderasyon</td><td>Bildiren/bildirilen DID, rapor kategorisi, açıklama</td><td>Kötüye kullanım/taciz önleme, platform güvenliği</td><td>m.5/2-f (meşru menfaat)</td></tr><tr><td>Bağlantı meta verisi</td><td>Sinyalleşme (kiminle/ne zaman/hangi amaçla bağlanmaya çalışıldığı), TURN röle sırasında IP adresi</td><td>P2P bağlantı kurulumu</td><td>m.5/2-c</td></tr><tr><td>Kullanım/telemetri</td><td>Cihaz id, oturum id, metrik</td><td>Ürün geliştirme, hata giderme</td><td>m.5/2-f; <strong>bkz. dürüstlük notu:</strong> bu veri şu an iddia edilen Differential Privacy koruması olmadan işlenmektedir (<code>privacy-policy.tr.md</code> §8)</td></tr><tr><td>Özel nitelikli — hassas tercihler</td><td>İnanç pratiği, siyasi görüş, yakınlık/mahremiyet tercihi kategori cevapları</td><td>Yalnızca ayrı açık rıza ile, gece ajan müzakeresinde karşı tarafın cihazına E2EE paylaşım</td><td>m.6 → <strong>açık rıza zorunlu</strong> (bkz. <code>acik-riza-metni.md</code> §2)</td></tr><tr><td>Özel nitelikli — biyometrik</td><td>Yüz görüntüsü/geometrik embedding (tamamen cihazda işlenir, Şirket'e hiç gönderilmez)</td><td>Profil fotoğrafı doğrulama (yaşayan kişi kontrolü)</td><td>m.6 → <strong>açık rıza zorunlu</strong> (bkz. <code>acik-riza-metni.md</code> §3); veri Şirket'e ulaşmadığı için Şirket bu veriyi &quot;işlemez&quot; ama cihaz-üstü işleme için yine de kullanıcı onayı alınır</td></tr></tbody></table></div>
+<h2>3. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi</h2>
+<p>Kişisel verileriniz; kayıt formunu doldurmanız, uygulamayı kullanmanız, konum izni vermeniz, tercih sorularını yanıtlamanız, uygulama içi satın alma yapmanız ve rapor/engelleme işlemleri yapmanız sırasında, doğrudan sizin tarafınızdan sağlanan beyan yoluyla ve cihazınızdaki uygulama tarafından <strong>elektronik ortamda</strong> toplanır. Hukuki sebepleri yukarıdaki tabloda belirtilmiştir.</p>
+<h2>4. Kişisel Verilerin Aktarıldığı Taraflar ve Aktarım Amaçları</h2>
+<ul><li><strong>Apple Inc. / Google LLC</strong> — uygulama içi satın alma makbuzu doğrulaması amacıyla (yurt dışına aktarım olabilir, <code>[VERIFY: KVKK m.9 yurt dışı aktarım şartı — açık rıza veya Kurul kararı gerekebilir]</code>).</li><li><strong>Push bildirim altyapısı (Expo/APNs)</strong> — bildirim iletimi amacıyla.</li><li>Reklam ağı, veri komisyoncusu veya analitik SDK'sına <strong>aktarım yapılmamaktadır</strong> (bkz. <code>privacy-policy.tr.md</code> §4, kod doğrulaması).</li><li>Yetkili kamu kurum ve kuruluşlarına, kanunen yetkili kılınmaları hâlinde ilgili mevzuat çerçevesinde.</li></ul>
+<h2>5. İlgili Kişinin Hakları (KVKK m.11)</h2>
+<p>KVKK'nın 11. maddesi uyarınca kişisel verisi işlenen kişi, veri sorumlusuna başvurarak:</p>
+<ul><li>Kişisel verisinin işlenip işlenmediğini öğrenme,</li><li>İşlenmişse buna ilişkin bilgi talep etme,</li><li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li><li>Yurt içinde/yurt dışında aktarıldığı üçüncü kişileri bilme,</li><li>Eksik/yanlış işlenmişse düzeltilmesini isteme,</li><li>KVKK m.7'de öngörülen şartlar çerçevesinde silinmesini/yok edilmesini isteme (<strong>bkz. uygulama içi &quot;Hesabı Sil&quot; — <code>privacy-policy.tr.md</code> §6, <code>DELETE /api/users/me</code></strong>),</li><li>Düzeltme/silme işlemlerinin aktarılan üçüncü kişilere bildirilmesini isteme,</li><li>İşlenen verilerin münhasıran otomatik sistemler ile analiz edilmesi suretiyle aleyhine bir sonucun ortaya çıkmasına itiraz etme,</li><li>Kanuna aykırı işleme sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme</li></ul>
+<p>haklarına sahiptir.</p>
+<p><strong>Veri taşınabilirliği/kopya talebi hakkında dürüstlük notu:</strong> bu görev kapsamında yapılan kod incelemesinde, kullanıcının kendi verisinin otomatik, uçtan uca bir &quot;veri dışa aktarma&quot; akışı koda <strong>bulunamamıştır</strong> (<code>privacy-policy.tr.md</code> §6). Bu hak şu an için <code>[VERIFY: destek kanalı]</code> üzerinden manuel olarak karşılanmalıdır; launch öncesi otomatik bir mekanizma değerlendirilmelidir.</p>
+<p>Başvurularınızı <code>support@wingerapp.com</code> üzerinden iletebilirsiniz; KEP/posta adresi <code>[VERIFY: şirket unvanı/adresi ile birlikte hukuki ekip tarafından eklenecek]</code>.</p>
+<h2>6. Otomatik Karar Verme</h2>
+<p>Uygulama, eşleştirme adaylarının sıralanmasında ve gece ajan müzakeresi sonucunun (<code>eşleşme yok</code>/<code>eşleşme</code>) belirlenmesinde <strong>tamamen cihazınızda çalışan</strong>, kural tabanlı/deterministik bir motor kullanır (<code>agents/agent-represented-matching.md</code> — <code>DeterministicNegotiationEngine</code>, LLM karar yolunda değildir). Bu süreç size aleyhine bağlayıcı bir hukuki sonuç doğurmaz (yalnızca eşleşme önerisi sunar); itiraz hakkınız için §5'e bakınız.</p>
+<h2>7. İlgili Belgeler</h2>
+<ul><li><code>privacy-policy.tr.md</code> — teknik ayrıntı ve kod kanıtlı veri akış tablosu</li><li><code>acik-riza-metni.md</code> — özel nitelikli veri kategorileri için ayrı açık rıza metinleri</li></ul></article>
+</main>
+<footer class="site-footer">
+  <p>[ŞİRKET ÜNVANI]</p>
+  <p>
+    <a href="/privacy-policy">Gizlilik Politikası</a> ·
+    <a href="/terms">Kullanım Koşulları</a> ·
+    <a href="/kvkk">KVKK</a> ·
+    <a href="/acik-riza">Açık Rıza</a> ·
+    <a href="/safety">Güvenlik</a> ·
+    <a href="/support">Destek</a>
+  </p>
+  <p><a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
+</footer>
+</body>
+</html>
