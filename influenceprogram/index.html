@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<title>Influencer Programı — WingerApp</title>
+<meta name="description" content="WingerApp Influencer Programı — davet kodunuzla getirdiğiniz kullanıcıların abonelik harcamasından pay kazanın.">
+<link rel="canonical" href="https://wingerapp.com/influenceprogram">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23191033%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%23f5c84c%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">WingerApp</a>
+  <nav class="site-nav" aria-label="Ana">
+      <a href="/">Ana sayfa</a>
+      <a href="/privacy-policy">Gizlilik Politikası</a>
+      <a href="/terms">Kullanım Koşulları</a>
+      <a href="/kvkk">KVKK Aydınlatma</a>
+      <a href="/acik-riza">Açık Rıza</a>
+      <a href="/safety">Güvenlik Politikası</a>
+      <a href="/influenceprogram" aria-current="page">Influencer Programı</a>
+      <a href="/support">Destek</a>
+    </nav>
+  <a class="lang-switch" href="/en/influenceprogram" hreflang="en">English</a>
+</header>
+<main>
+<p class="last-updated">Son güncelleme: 2026-09-18</p>
+<article><h1>WingerApp Influencer Programı</h1>
+<p><strong>Son güncelleme:</strong> 2026-09-18 · <strong>Durum:</strong> Taslak — program henüz genel başvuruya açık değil, kod ve link dağıtımı başlamadı.</p>
+<blockquote><p>Bu sayfa, <code>backend/app/api/influencer.py</code> ve <code>backend/app/models/__init__.py</code>'deki (<code>Influencer</code>, <code>DeviceAttribution</code>, <code>RevenueShare</code>) gerçek çalışan koda bakılarak yazılmıştır. Henüz karara bağlanmamış noktalar <code>[KARAR]</code> ile işaretlenmiştir.</p></blockquote>
+<h2>Program nedir</h2>
+<p>WingerApp Influencer Programı, kendinize özel bir davet kodu/linkiyle getirdiğiniz kullanıcıların uygulama içi abonelik harcamasından size pay verilen bir yönlendirme (referral) programıdır. Kayıt ücreti yoktur; kazancınız, getirdiğiniz kişilerin <strong>gerçekten</strong> yaptığı satın almaların bir yüzdesidir — sabit bir liste fiyatı değil.</p>
+<h2>Nasıl çalışır</h2>
+<ol><li><strong>Başvurun ve onaylanın.</strong> Program şu an sınırlı sayıda influencer ile (toplam en fazla 100 kişi) yürütülüyor. Başvurunuz onaylanırsa size özel bir davet kodu (<code>WIN-XXXXXXXX</code> biçiminde) ve bir yönlendirme linki (<code>wingerapp.com/join/KODUNUZ</code>) tanımlanır.</li><li><strong>Linkinizi paylaşın.</strong> Linke tıklayan biri App Store/Google Play'e yönlendirilir; kodunuz otomatik olarak cihazının panosuna kopyalanır. Uygulamayı ilk açtığında kod cihazına otomatik olarak, kalıcı ve tek seferlik olarak bağlanır — ayrıca bir şey yazmasına gerek kalmaz.</li><li><strong>Kazanın.</strong> O kişi uygulama içinden bir satın alma (abonelik vb.) yaptığında, harcamasının bir yüzdesi sizin hesabınıza gelir payı olarak yazılır. Kendi davet ettiğiniz alt-ağdaki (L2) influencer'ların getirdiği kullanıcıların harcamasından da ek bir pay alırsınız.</li></ol>
+<h2>Kazanç oranları</h2>
+<div class="table-wrap"><table><thead><tr><th>Kademe</th><th>Kimden kazanır</th><th>Oran</th></tr></thead><tbody><tr><td>L1 (doğrudan influencer)</td><td>Kendi doğrudan getirdiği kullanıcılar</td><td>%10</td></tr><tr><td>L1 (doğrudan influencer)</td><td>Kendi davet ettiği L2 influencer'ların ağı (ek pay)</td><td>%5</td></tr><tr><td>L2 (alt-ağ influencer'ı)</td><td>Kendi doğrudan getirdiği kullanıcılar</td><td>%5</td></tr></tbody></table></div>
+<p>Oranlar getirdiğiniz kullanıcının <strong>gerçek harcaması</strong> üzerinden, her satın alma anında hesaplanır. Bir cihaz ile influencer arasındaki bağ ömür boyu ve tek seferliktir: bir cihaz yalnızca bir kez, yalnızca bir influencer'a bağlanabilir.</p>
+<p><strong>Önemli kısıtlama:</strong> Kazançlar yalnızca program sizin için &quot;aktif&quot; hale geldikten (bkz. &quot;Kimler başvurabilir ve kurallar&quot;) sonraki satın almalar için kaydedilir. Aktivasyon eşiği aşılmadan önce yapılmış satın almalar için geriye dönük gelir payı <strong>oluşturulmaz</strong> — bu bir arayüz kısıtı değil, sistemin çalışma şeklidir.</p>
+<h2>Şeffaflık ve gizlilik</h2>
+<ul><li>Sizinle bir kullanıcı arasındaki bağ, o kişinin adı/e-postası/telefonu ile değil, cihazının <strong>geri döndürülemez biçimde SHA-256 ile hash'lenmiş</strong> kimliğiyle kurulur. Influencer olarak hiçbir zaman getirdiğiniz kişilerin profiline, fotoğrafına, mesajına veya iletişim bilgisine erişiminiz olmaz — sistem bunları size hiç göstermez.</li><li>Kendi istatistik ekranınızda yalnızca <strong>toplu sayılar</strong> görürsünüz: toplam indirme sayısı, toplam/bekleyen kazanç (kuruş cinsinden), alt-ağ indirme ve kazanç sayıları. Tek tek kullanıcıya ait hiçbir kayıt (kimlik, satın alma tarihi hariç tutar dökümü dışında) gösterilmez.</li><li>Kendi verilerinize erişim, kayıt sırasında size bir kez verilen gizli bir erişim anahtarıyla korunur; bu anahtar herkese açık davet kodunuzdan farklıdır ve kimseyle paylaşılmamalıdır.</li></ul>
+<h2>Kimler başvurabilir ve kurallar</h2>
+<ul><li>Program toplam <strong>en fazla 100 influencer</strong> ile sınırlıdır.</li><li>Kazançların hesabınıza yansımaya başlaması için WingerApp'in platform genelinde en az <strong>10.000 indirme</strong> eşiğini aşması gerekir (WingerApp ekibi bu eşiği istisnai durumlarda manuel olarak da açabilir). Bu eşik aşılana kadar getirdiğiniz indirmeler sayılır, ancak yukarıda belirtildiği gibi gelir payı biriktirilmez.</li><li>Başvurular şu an bir form veya öz-servis kayıt ekranı üzerinden değil, doğrudan e-posta ile alınıyor ve WingerApp ekibi tarafından tek tek değerlendiriliyor.</li><li>Kod ve link dağıtımı, aşağıdaki &quot;Influencer girişi&quot; panelinin ve program operasyon süreçlerinin tamamlanmasını bekliyor; bu sayfa bugün itibarıyla bir <strong>ön başvuru</strong> çağrısıdır.</li><li>Fatura/vergi yükümlülükleri: <code>[KARAR]</code> — hukuki ve finans ekibi netleştirecek.</li><li>Ödeme yöntemi ve sıklığı: <code>[KARAR]</code> — bugün itibarıyla kodda otomatik/periyodik bir ödeme akışı yok; ödemeler WingerApp ekibi tarafından elle yürütülüyor.</li></ul>
+<h2>Sık sorulan sorular</h2>
+<h3>Başvurumdan sonra ne kadar sürede dönüş alırım?</h3>
+<p><code>[KARAR]</code> — henüz sabit bir hedef süre belirlenmedi. Başvurunuzu aldığımızda size e-posta ile dönüş yapacağız.</p>
+<h3>Kazancımı nasıl takip ederim?</h3>
+<p>Onaylanan influencer'lar, kendilerine verilen kod ve gizli erişim anahtarıyla kendi istatistiklerini (indirme, kazanç, alt-ağ) sorgulayabilir. Ayrı bir web paneli (<code>influencer.wingerapp.com</code>) şu an hazırlık aşamasındadır ve henüz yayında değildir; yayına alındığında giriş bilgileriniz size iletilecektir.</p>
+<h3>Ödeme ne zaman ve nasıl yapılır?</h3>
+<p><code>[KARAR]</code> — ödeme takvimi, yöntemi (banka havalesi vb.) ve asgari ödeme tutarı henüz belirlenmedi. Sistemde her kazanç &quot;bekliyor&quot; veya &quot;ödendi&quot; durumunda tutuluyor; bugün itibarıyla bu durum değişikliği elle yönetiliyor.</p>
+<h3>Vergi/fatura düzenlemem gerekiyor mu?</h3>
+<p><code>[KARAR]</code> — bu, ülkenize ve gelir tutarınıza göre değişebilecek hukuki bir konudur; program operasyonel hale gelmeden önce netleştirilecek ve bu sayfa güncellenecektir.</p>
+<h3>Kazançlar şu an gerçek para ile mi ödeniyor?</h3>
+<p>Hayır, henüz değil. Gelir payı hesaplama mantığı çalışıyor, ancak bunu besleyen satın alma doğrulaması bugün itibarıyla gerçek Apple/Google ödeme altyapısına değil, test amaçlı bir doğrulamaya dayanıyor. Gerçek para dağıtımı, bu entegrasyon tamamlanıp doğrulandıktan sonra başlayacak.</p>
+<h3>Bir kullanıcının benim linkimden geldiğini ama attribution'ın çalışmadığını düşünüyorum, ne yapmalıyım?</h3>
+<p><a href="mailto:support@wingerapp.com?subject=Influencer%20attribution%20sorunu">Bize yazın</a> — cihaz kimliği ve tahmini tarih ile birlikte durumu inceleriz.</p>
+<h2>Başvurun</h2>
+<p>Programa ön başvuru yapmak veya sorularınızı iletmek için bize yazın:</p>
+<p><strong><a href="mailto:support@wingerapp.com?subject=Influencer%20ba%C5%9Fvurusu">Başvur</a></strong></p>
+<p>Zaten onaylanmış bir influencer iseniz, kendi istatistik panelinize buradan ulaşabilirsiniz (hazırlık aşamasında):</p>
+<p><strong><a href="https://influencer.wingerapp.com" rel="noopener noreferrer">Influencer girişi</a></strong></p></article>
+</main>
+<footer class="site-footer">
+  <p>[ŞİRKET ÜNVANI]</p>
+  <p>
+    <a href="/privacy-policy">Gizlilik Politikası</a> ·
+    <a href="/terms">Kullanım Koşulları</a> ·
+    <a href="/kvkk">KVKK</a> ·
+    <a href="/acik-riza">Açık Rıza</a> ·
+    <a href="/safety">Güvenlik</a> ·
+    <a href="/influenceprogram">Influencer Programı</a> ·
+    <a href="/support">Destek</a>
+  </p>
+  <p><a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
+</footer>
+</body>
+</html>
