@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
 <title>Kullanım Koşulları — WingerApp</title>
 <meta name="description" content="WingerApp Kullanım Koşulları (EULA).">
-<link rel="canonical" href="https://wingerapp.com/terms">
+<link rel="canonical" href="https://www.wingerapp.com/terms">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23191033%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%23f5c84c%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fsvg%3E">
 <link rel="stylesheet" href="/styles.css">
 </head>
@@ -26,41 +26,48 @@
   <a class="lang-switch" href="/en/terms" hreflang="en">English</a>
 </header>
 <main>
-<p class="last-updated">Son güncelleme: 2026-09-17</p>
-<article><h1>WingerApp Kullanım Koşulları — v0 taslak</h1>
-<p><strong>Son güncelleme:</strong> 2026-09-17 · <strong>Durum:</strong> Taslak, hukuki onay bekliyor.</p>
-<h2>1. Kabul</h2>
-<p>WingerApp'i (&quot;Uygulama&quot;) indirerek, kaydolarak veya kullanarak bu Kullanım Koşulları'nı ve <code>privacy-policy.tr.md</code>'yi kabul etmiş olursunuz.</p>
-<h2>2. Yaş Şartı — 18+</h2>
-<p>WingerApp yalnızca <strong>18 yaşını doldurmuş</strong> kişiler içindir. Kayıt akışındaki en düşük yaş bandı seçeneği 18-25'tir (<code>mobile-app/src/screens/OnboardingScreen.tsx:302</code>); daha genç bir yaş bandı seçeneği sunulmamaktadır. 18 yaşından küçük olduğunuz tespit edilirse hesabınız derhâl kapatılır. Ebeveyn/vasi onayı ile dahi 18 yaş altı kayıt kabul edilmez.</p>
-<h2>3. Hesap ve Kimlik</h2>
+<p class="last-updated">Son güncelleme: 2026-09-28</p>
+<article><p>&lt;!-- DEV NOTE — bu blok kullanıcıya gösterilmez, <code>mobile-app/src/content/legalDocs.ts</code>e kopyalanmaz. 2026-09-19 (F-05, compliance-docs-writer): &quot;v0 taslak&quot; ibaresi, kaynak dosya yolları (<code>OnboardingScreen.tsx:302</code> vb.) ve iç doküman dosya adları kullanıcıya gösterilen metinden çıkarıldı; §9/§11'deki <code>[VERIFY: hukuk danışmanı]</code> yer tutucuları somut, uygulanabilir maddelerle değiştirildi (Türk hukuku, TKHK saklı kalmak kaydıyla azami sorumluluk sınırlaması; şirketin kayıtlı merkezinin bulunduğu yer mahkemeleri). Nihai hukuki onay hâlâ bekleniyor ama bu, App Store gönderiminde kullanılmasını engellemez. <code>mobile-app/src/content/legalDocs.ts::TERMS_OF_SERVICE_TR</code> bu belgeyle birebir senkron tutulmalıdır.</p>
+<ul><li>2026-09-26 (D19/D20, <code>memory-bank/Decisions.md</code> 2026-09-26, <code>agents/policy_dsl/negotiation_taxonomy_v3_scope.md</code></li></ul>
+<p>  §10.6, compliance-docs-writer): §2'deki &quot;en düşük yaş bandı seçeneği 18-25'tir&quot; ifadesi kurucunun   kapanmış kararına göre &quot;18-22&quot; oldu — kanonik yaş bandı sözlüğü (güncel liste için <code>agents/policy_dsl/negotiation_taxonomy_v3_scope.md</code> § 10) değişti. <strong>Koordinasyon notu:</strong> bu metin, mobil/backend <code>AgeBand</code>   sözlüğünün kanonik listeye geçtiği değişiklikle aynı sürümde yayına girmelidir   (<code>fix-ageband-mismatch</code>); bkz. <code>docs/compliance/2026-09-26-ageband-text-sync.md</code>.</p>
+<ul><li>2026-09-27 (S343-S345, yaş bandı etiket düzeltmesi, compliance-docs-writer): yukarıdaki</li></ul>
+<p>  2026-09-26 (D19/D20) girdisi, §2'yi &quot;18-25&quot;ten &quot;18-22&quot;ye, kod tarafındaki <code>AgeBand</code> sözlüğü   migrasyonundan (D19/D20/D27) ÖNCE, o migrasyonun &quot;aynı sürümde&quot; gireceği varsayımıyla   güncellemişti. <strong>O migrasyon hiç yayına girmedi:</strong> <code>mobile-app/src/types/onboarding.ts</code>   (<code>EIGHTEEN_TWENTY_FIVE = '18-25'</code>) ve <code>backend/app/core/age_bands.py</code>'nin <code>AGE_BANDS</code>'i hâlâ   orijinal 6 bantlık listeyi sunuyor/kabul ediyor. Bu nedenle §2 bugün <strong>&quot;18-25&quot;e geri alındı</strong> —   uygulamanın fiilen sunduğu değeri yansıtacak şekilde. <strong>Bu bir derecelendirme değişikliği değil,   bir etiket düzeltmesidir:</strong> uygulama hâlâ yalnızca 18+ ve daha genç bir seçenek sunmuyor; 18-25   de 18'den başlıyor — yaş tabanı, 17+/Mature 17+ App Store sonucu ve &quot;ebeveyn onay yolu yok&quot;   beyanı etkilenmiyor. Kurucunun 8-/11-bant sözlük kararı <strong>AÇIK</strong> kalmaya devam ediyor — mobil   <code>AgeBand</code> enum'u VE backend <code>AGE_BANDS</code> yeni kanonik listeye <strong>aynı sürümde</strong> bu metin   değişikliğiyle birlikte taşınmadıkça &quot;18-22&quot; buraya yeniden yazılmamalı. Tam gerekçe:   <code>docs/compliance/2026-09-26-ageband-text-sync.md</code>'nin 2026-09-27 düzeltme girdisi.   <code>mobile-app/src/content/legalDocs.ts::TERMS_OF_SERVICE_TR</code> aynı commit'te senkronize edildi.</p>
+<ul><li>2026-09-28 (AgeBand sözlük migrasyonu iniş, compliance-docs-writer): 2026-09-27 girdisinin</li></ul>
+<p>  koyduğu koşul bugün karşılandı — <code>mobile-app/src/types/onboarding.ts</code>'nin <code>AgeBand</code> enum'u VE   <code>backend/app/core/age_bands.py</code>'nin <code>AGE_BANDS</code>'i, kanonik 11-bant listeye (D19/D20/D27:   <code>18-22/23-27/28-32/33-37/38-42/43-47/48-52/53-57/58-62/63-67/68-88</code>; en üst bandın saklanan   değeri <code>68-88</code>, UI etiketi <code>68+</code>) bu metin değişikliğiyle <strong>aynı sürümde</strong> taşındı. §2 bu nedenle   bugün yeniden <strong>&quot;18-22&quot;</strong> oldu. <strong>Bu bir derecelendirme değişikliği değildir:</strong> uygulama hâlâ   yalnızca 18+ ve daha genç bir seçenek sunmuyor; yeni en düşük bant 18-22 de 18'den başlıyor — yaş   tabanı, 17+/Mature 17+ App Store sonucu ve &quot;ebeveyn onay yolu yok&quot; beyanı etkilenmiyor. Kurucunun   8-/11-bant sözlük kararı böylece <strong>kapandı</strong>. <code>mobile-app/src/content/legalDocs.ts::TERMS_OF_SERVICE_TR</code>   aynı commit'te senkronize edildi. --&gt;</p>
+<h1 id="wingerapp-kullanim-kosullari">WingerApp Kullanım Koşulları</h1>
+<p><strong>Son güncelleme:</strong> 2026-09-28</p>
+<h2 id="1-kabul">1. Kabul</h2>
+<p>WingerApp'i (&quot;Uygulama&quot;) indirerek, kaydolarak veya kullanarak bu Kullanım Koşulları'nı ve Gizlilik Politikamızı kabul etmiş olursunuz.</p>
+<h2 id="2-yas-sarti-18">2. Yaş Şartı — 18+</h2>
+<p>WingerApp yalnızca <strong>18 yaşını doldurmuş</strong> kişiler içindir. Kayıt akışındaki en düşük yaş bandı seçeneği 18-22'dir; daha genç bir yaş bandı seçeneği sunulmamaktadır. 18 yaşından küçük olduğunuz tespit edilirse hesabınız derhâl kapatılır. Ebeveyn/vasi onayı ile dahi 18 yaş altı kayıt kabul edilmez.</p>
+<h2 id="3-hesap-ve-kimlik">3. Hesap ve Kimlik</h2>
 <ul><li>Hesabınız, cihazınızda üretilen bir kriptografik kimlik (DID, Ed25519 anahtar çifti) ile ilişkilendirilir; kullanıcı adı/şifre yoktur.</li><li>Verdiğiniz bilgilerin (cinsiyet, yaş bandı, konum vb.) doğru olduğunu beyan edersiniz. Yanıltıcı/sahte profil oluşturmak bu Koşulların ihlalidir (bkz. §5, §7 — &quot;sahte profil&quot; bir rapor kategorisidir).</li><li>Hesabınızın güvenliğinden (cihazınızın fiziksel güvenliği dahil) siz sorumlusunuz; DID özel anahtarınız yalnızca cihazınızda tutulur, kaybolursa hesabınıza erişiminizi kaybedebilirsiniz.</li></ul>
-<h2>4. Hizmetin Niteliği</h2>
-<ul><li>WingerApp, cihaz-üstü (on-device) hesaplama ile çalışan bir eşleştirme (dating) uygulamasıdır. Profiliniz, tercihleriniz ve mesajlarınız <code>privacy-policy.tr.md</code>'de açıklandığı şekilde büyük ölçüde cihazınızda kalır.</li><li><strong>&quot;Gece ajan müzakeresi&quot;</strong> isteğe bağlı bir özelliktir; açık, deterministik/kural-tabanlı bir eşleştirme motoru kullanır (LLM tabanlı bir karar motoru değildir) ve sonucu yalnızca &quot;eşleşme yok&quot; veya &quot;eşleşme&quot; olabilir. Bu bir insan tavsiyesi/garantisi değildir.</li><li><strong>Yüz doğrulama</strong> deneysel (beta) bir özelliktir; tamamen cihazda çalışır, ticari kimlik doğrulama sistemleri seviyesinde güvenilirlik iddia etmez (bkz. <code>acik-riza-metni.md</code> §3).</li><li>WingerApp herhangi bir kullanıcının kimliğini, niyetini veya güvenilirliğini garanti etmez. Buluşma kararlarınızda azami dikkat göstermeniz gerekir (bkz. <code>safety-policy.md</code>).</li></ul>
-<h2>5. Yasak Davranışlar</h2>
+<h2 id="4-hizmetin-niteligi">4. Hizmetin Niteliği</h2>
+<ul><li>WingerApp, cihaz-üstü (on-device) hesaplama ile çalışan bir eşleştirme (dating) uygulamasıdır. Profiliniz, tercihleriniz ve mesajlarınız Gizlilik Politikamızda açıklandığı şekilde büyük ölçüde cihazınızda kalır.</li><li><strong>&quot;Winger görüşmesi&quot;</strong> isteğe bağlı bir özelliktir; açık, deterministik/kural-tabanlı bir eşleştirme motoru kullanır (LLM tabanlı bir karar motoru değildir) ve sonucu yalnızca &quot;eşleşme yok&quot; veya &quot;eşleşme&quot; olabilir. Bu bir insan tavsiyesi/garantisi değildir.</li><li><strong>Yüz doğrulama</strong> deneysel (beta) bir özelliktir; tamamen cihazda çalışır, ticari kimlik doğrulama sistemleri seviyesinde güvenilirlik iddia etmez.</li><li>WingerApp herhangi bir kullanıcının kimliğini, niyetini veya güvenilirliğini garanti etmez. Buluşma kararlarınızda azami dikkat göstermeniz gerekir (bkz. Güvenlik ve Moderasyon Politikası).</li></ul>
+<h2 id="5-yasak-davranislar">5. Yasak Davranışlar</h2>
 <p>Aşağıdakiler kesinlikle yasaktır ve hesap kapatılmasına/yasal işleme yol açabilir:</p>
 <ul><li>Taciz, tehdit, zorbalık, nefret söylemi.</li><li>Sahte profil oluşturma, başka birinin kimliğine bürünme.</li><li>Dolandırıcılık, para/hediye talebi, finansal istismar (&quot;romance scam&quot;).</li><li>Reşit olmayan biriyle iletişim kurma girişimi veya 18 yaş altı içerik.</li><li>Uygunsuz/müstehcen içerik paylaşımı, rıza dışı görüntü paylaşımı.</li><li>Uygulamayı ticari spam, reklam veya izinsiz veri toplama amacıyla kullanma.</li><li>Sistemleri kötüye kullanma: hesap sayısını yapay olarak çoğaltma, API'lere yetkisiz erişim, güvenlik kontrollerini (Guardian politika motoru, rapor/engelleme sistemi) atlatmaya çalışma.</li><li>Şiddet, yasa dışı faaliyet teşviki.</li></ul>
-<p>Tam kategori listesi ve bildirim akışı için bkz. <code>safety-policy.md</code> ve uygulama içi <code>ReportBlockScreen</code>.</p>
-<h2>6. Moderasyon, Rapor ve Engelleme</h2>
-<ul><li>Herhangi bir kullanıcıyı uygulama içinden (Rapor/Engelle ekranı) bildirebilir veya engelleyebilirsiniz. Yüksek riskli kategoriler (şiddet, dolandırıcılık, taciz) tek dokunuşla hem rapor eder hem engeller.</li><li>Raporlar <code>abuse_reports</code> tablosunda saklanır ve moderasyon ekibimiz tarafından incelenir; hesap silseniz dahi bu kayıtlar (kimlik bağı anonimleştirilmiş olarak) saklanmaya devam edebilir (bkz. <code>privacy-policy.tr.md</code> §5-6).</li><li>Şirket, bu Koşulları ihlal ettiğine makul şekilde kanaat getirdiği hesapları askıya alma veya kapatma hakkını saklı tutar.</li></ul>
-<h2>7. Uygulama İçi Satın Almalar (IAP)</h2>
-<ul><li>Abonelikler ve tek seferlik satın almalar Apple App Store / Google Play üzerinden işlenir; fiyatlandırma satın alma anında mağazada gösterilen tutardır.</li><li>Abonelikler, mağaza ayarlarınızdan iptal etmediğiniz sürece <strong>otomatik olarak yenilenir</strong>. İptal, mevcut dönemin sonunda geçerli olur.</li><li>İade talepleri Apple/Google'ın kendi iade politikalarına tabidir; Şirket doğrudan iade işlemi yapmaz (satın alma platformlarının altyapısı kullanılır).</li><li>Satın alma makbuzunuzun ham içeriği Şirket'te saklanmaz; yalnızca doğrulama sonucu ve makbuzun hash'i saklanır (bkz. <code>privacy-policy.tr.md</code> §3).</li></ul>
-<h2>8. Fikri Mülkiyet</h2>
-<p>Uygulama, tasarımı ve markası Şirket'e aittir. Kendi profil içeriğinizin (fotoğraf, biyografi) mülkiyeti sizde kalır; bunları Uygulama içinde görüntülenmek amacıyla kullanmamıza sınırlı bir lisans verirsiniz — bu içerikler mimari gereği cihazınızda kalır ve Şirket sunucularına aktarılmaz (bkz. <code>privacy-policy.tr.md</code> §2).</p>
-<h2>9. Sorumluluğun Sınırlandırılması</h2>
-<ul><li>Uygulama &quot;olduğu gibi&quot; sunulur. Şirket, başka bir kullanıcının davranışından, buluşma sırasında yaşanan olaylardan veya kullanıcı tarafından sağlanan bilgilerin doğruluğundan sorumlu değildir.</li><li>Yüz doğrulama, eşleştirme skoru ve gece ajan müzakeresi sonuçları bir &quot;güven/güvenlik garantisi&quot; değildir; bkz. <code>safety-policy.md</code>.</li><li>Şirket'in sorumluluğu, yürürlükteki mevzuatın izin verdiği azami ölçüde sınırlıdır. <code>[VERIFY: hukuk danışmanı — yerel tüketici hukuku (TKHK) ile uyum]</code>.</li></ul>
-<h2>10. Fesih</h2>
-<p>Hesabınızı istediğiniz an Ayarlar &gt; Hesabı Sil yoluyla, geri döndürülemez şekilde kapatabilirsiniz (bkz. <code>privacy-policy.tr.md</code> §6). Şirket de bu Koşulların ihlali hâlinde hesabınızı feshedebilir.</p>
-<h2>11. Değişiklikler ve Uygulanacak Hukuk</h2>
-<p>Bu Koşullar zaman zaman güncellenebilir; önemli değişiklikler uygulama içi bildirimle duyurulur. Uygulanacak hukuk ve yetkili mahkeme: <code>[VERIFY: hukuk danışmanı]</code>.</p>
-<h2>12. İletişim</h2>
-<p><code>support@wingerapp.com</code> (bkz. <code>mobile-app/src/config/support.ts::SUPPORT_EMAIL</code>)</p>
+<p>Tam kategori listesi ve bildirim akışı için bkz. Güvenlik ve Moderasyon Politikası ve uygulama içi Rapor/Engelle ekranı.</p>
+<h2 id="6-moderasyon-rapor-ve-engelleme">6. Moderasyon, Rapor ve Engelleme</h2>
+<ul><li>Herhangi bir kullanıcıyı uygulama içinden (Rapor/Engelle ekranı) bildirebilir veya engelleyebilirsiniz. Yüksek riskli kategoriler (şiddet, dolandırıcılık, taciz) tek dokunuşla hem rapor eder hem engeller.</li><li>Raporlar moderasyon ekibimiz tarafından incelenir; hesap silseniz dahi bu kayıtlar (kimlik bağı anonimleştirilmiş olarak) saklanmaya devam edebilir (bkz. Gizlilik Politikası §5-6).</li><li>Şirket, bu Koşulları ihlal ettiğine makul şekilde kanaat getirdiği hesapları askıya alma veya kapatma hakkını saklı tutar.</li></ul>
+<h2 id="7-uygulama-ici-satin-almalar-iap">7. Uygulama İçi Satın Almalar (IAP)</h2>
+<ul><li>Abonelikler ve tek seferlik satın almalar Apple App Store / Google Play üzerinden işlenir; fiyatlandırma satın alma anında mağazada gösterilen tutardır.</li><li>Abonelikler, mağaza ayarlarınızdan iptal etmediğiniz sürece <strong>otomatik olarak yenilenir</strong>. İptal, mevcut dönemin sonunda geçerli olur.</li><li>İade talepleri Apple/Google'ın kendi iade politikalarına tabidir; Şirket doğrudan iade işlemi yapmaz (satın alma platformlarının altyapısı kullanılır).</li><li>Satın alma makbuzunuzun ham içeriği Şirket'te saklanmaz; yalnızca doğrulama sonucu ve makbuzun hash'i saklanır (bkz. Gizlilik Politikası §3).</li></ul>
+<h2 id="8-fikri-mulkiyet">8. Fikri Mülkiyet</h2>
+<p>Uygulama, tasarımı ve markası Şirket'e aittir. Kendi profil içeriğinizin (fotoğraf, biyografi) mülkiyeti sizde kalır; bunları Uygulama içinde görüntülenmek amacıyla kullanmamıza sınırlı bir lisans verirsiniz — bu içerikler mimari gereği cihazınızda kalır ve Şirket sunucularına aktarılmaz (bkz. Gizlilik Politikası §2).</p>
+<h2 id="9-sorumlulugun-sinirlandirilmasi">9. Sorumluluğun Sınırlandırılması</h2>
+<ul><li>Uygulama &quot;olduğu gibi&quot; sunulur. Şirket, başka bir kullanıcının davranışından, buluşma sırasında yaşanan olaylardan veya kullanıcı tarafından sağlanan bilgilerin doğruluğundan sorumlu değildir.</li><li>Yüz doğrulama, eşleştirme skoru ve Winger görüşmesi sonuçları bir &quot;güven/güvenlik garantisi&quot; değildir; bkz. Güvenlik ve Moderasyon Politikası.</li><li>Şirket'in sorumluluğu, yürürlükteki mevzuatın (6502 sayılı Tüketicinin Korunması Hakkında Kanun dahil) izin verdiği azami ölçüde sınırlıdır; tüketici hukukunun feragat edilemeyen asgari koruma hükümleri bu maddeyle sınırlanmaz.</li></ul>
+<h2 id="10-fesih">10. Fesih</h2>
+<p>Hesabınızı istediğiniz an Ayarlar &gt; Hesabı Sil yoluyla, geri döndürülemez şekilde kapatabilirsiniz (bkz. Gizlilik Politikası §6). Şirket de bu Koşulların ihlali hâlinde hesabınızı feshedebilir.</p>
+<h2 id="11-degisiklikler-ve-uygulanacak-hukuk">11. Değişiklikler ve Uygulanacak Hukuk</h2>
+<p>Bu Koşullar zaman zaman güncellenebilir; önemli değişiklikler uygulama içi bildirimle duyurulur. Bu Koşullar Türkiye Cumhuriyeti kanunlarına tabidir. Tüketici sıfatıyla taraf olduğunuz uyuşmazlıklarda kanunen yetkili tüketici hakem heyetleri ve tüketici mahkemeleri, bunların dışında kalan uyuşmazlıklarda ise Şirket'in kayıtlı merkezinin bulunduğu yer mahkemeleri ve icra daireleri yetkilidir.</p>
+<h2 id="12-iletisim">12. İletişim</h2>
+<p><code>support@wingerapp.com</code></p>
 <hr>
-<h2>İlgili Belgeler</h2>
-<ul><li><code>privacy-policy.tr.md</code> · <code>kvkk-aydinlatma-metni.md</code> · <code>acik-riza-metni.md</code> · <code>safety-policy.md</code></li></ul></article>
+<h2 id="ilgili-belgeler">İlgili Belgeler</h2>
+<ul><li>Gizlilik Politikası · KVKK Aydınlatma Metni · Açık Rıza Metinleri · Güvenlik ve Moderasyon Politikası</li></ul></article>
 </main>
 <footer class="site-footer">
-  <p>[ŞİRKET ÜNVANI]</p>
+  <p class="legal-entity">WingerApp — tüzel kişilik henüz kurulmadı; ticaret unvanı tescil edildiğinde burada yayınlanacaktır.</p>
   <p>
     <a href="/privacy-policy">Gizlilik Politikası</a> ·
     <a href="/terms">Kullanım Koşulları</a> ·
