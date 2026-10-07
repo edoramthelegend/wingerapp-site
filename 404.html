@@ -1,46 +1,65 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
-<title>Sayfa bulunamadı — WingerApp</title>
-<meta name="description" content="Aradığınız sayfa bulunamadı.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1417" media="(prefers-color-scheme: dark)">
+<title>Page not found — WingerApp</title>
+<meta name="description" content="The page you were looking for could not be found.">
 <link rel="canonical" href="https://www.wingerapp.com/404">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23191033%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%23f5c84c%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fsvg%3E">
+
+<meta property="og:site_name" content="WingerApp">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Page not found — WingerApp">
+<meta property="og:description" content="The page you were looking for could not be found.">
+<meta property="og:url" content="https://www.wingerapp.com/404">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.wingerapp.com/assets/hero-welcome.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23F0507F%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%239251CC%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20d%3D%22M32%2055%20C14%2042%206%2032%206%2021%20C6%2013%2012%208%2019%208%20C25%208%2029%2011%2032%2016%20C35%2011%2039%208%2045%208%20C52%208%2058%2013%2058%2021%20C58%2032%2050%2042%2032%2055%20Z%22%20fill%3D%22url(%23g)%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="/assets/fonts/PlusJakartaSans_400Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/PlusJakartaSans_700Bold.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 </head>
-<body>
+<body class="layout-article">
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="/">WingerApp</a>
-  <nav class="site-nav" aria-label="Ana">
-      <a href="/">Ana sayfa</a>
-      <a href="/privacy-policy">Gizlilik Politikası</a>
-      <a href="/terms">Kullanım Koşulları</a>
-      <a href="/kvkk">KVKK Aydınlatma</a>
-      <a href="/acik-riza">Açık Rıza</a>
-      <a href="/safety">Güvenlik Politikası</a>
-      <a href="/influenceprogram">Influencer Programı</a>
-      <a href="/support">Destek</a>
+  <div class="header-inner">
+    <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 64 64" width="28" height="28" aria-hidden="true" focusable="false"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0507F"/><stop offset="1" stop-color="#9251CC"/></linearGradient></defs><path d="M32 55 C14 42 6 32 6 21 C6 13 12 8 19 8 C25 8 29 11 32 16 C35 11 39 8 45 8 C52 8 58 13 58 21 C58 32 50 42 32 55 Z" fill="url(#bm)"/></svg><span>WingerApp</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/privacy-policy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/safety">Safety</a>
+      <a href="/influenceprogram">Influencers</a>
+      <a href="/support">Support</a>
     </nav>
-  
+    
+  </div>
 </header>
-<main>
+<main id="main" class="main-article">
 
-<h1>404 — Sayfa bulunamadı</h1><p>Aradığınız sayfa bulunamadı. <a href="/">Ana sayfaya dön</a>.</p>
+<article class="prose"><h1>404 — Page not found</h1><p>The page you were looking for could not be found. <a href="/">Back to the home page</a>.</p><p lang="tr">Aradığınız sayfa bulunamadı. <a href="/tr/">Ana sayfaya dön</a>.</p></article>
 </main>
 <footer class="site-footer">
-  <p class="legal-entity">WingerApp — tüzel kişilik henüz kurulmadı; ticaret unvanı tescil edildiğinde burada yayınlanacaktır.</p>
-  <p>
-    <a href="/privacy-policy">Gizlilik Politikası</a> ·
-    <a href="/terms">Kullanım Koşulları</a> ·
-    <a href="/kvkk">KVKK</a> ·
-    <a href="/acik-riza">Açık Rıza</a> ·
-    <a href="/safety">Güvenlik</a> ·
-    <a href="/influenceprogram">Influencer Programı</a> ·
-    <a href="/support">Destek</a>
-  </p>
-  <p><a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 64 64" width="28" height="28" aria-hidden="true" focusable="false"><defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0507F"/><stop offset="1" stop-color="#9251CC"/></linearGradient></defs><path d="M32 55 C14 42 6 32 6 21 C6 13 12 8 19 8 C25 8 29 11 32 16 C35 11 39 8 45 8 C52 8 58 13 58 21 C58 32 50 42 32 55 Z" fill="url(#bm)"/></svg><span>WingerApp</span></a>
+      <p class="footer-tag">Private hearts, smart matches.</p>
+      <p class="footer-contact"><span>Contact:</span> <a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
+    </div>
+    <div class="footer-col">
+      <h2>Legal</h2>
+      <ul><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms">Terms of Service</a></li><li><a href="/safety">Safety and Moderation</a></li><li><a href="/kvkk">KVKK Notice (Turkish)</a></li><li><a href="/acik-riza">Explicit Consent (Turkish)</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h2>WingerApp</h2>
+      <ul><li><a href="/">Home</a></li><li><a href="/support">Support and account deletion</a></li><li><a href="/influenceprogram">Influencer Program</a></li></ul>
+    </div>
+  </div>
+  <p class="legal-entity">WingerApp — the legal entity is not yet incorporated; the registered trade name will be published here once it is.</p>
 </footer>
 </body>
 </html>

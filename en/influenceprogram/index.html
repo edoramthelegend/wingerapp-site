@@ -2,80 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
-<title>Influencer Program — WingerApp</title>
-<meta name="description" content="WingerApp Influencer Program — earn a revenue share from the subscription spend of users you refer.">
-<link rel="canonical" href="https://www.wingerapp.com/en/influenceprogram">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%23191033%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%23f5c84c%22%20text-anchor%3D%22middle%22%3EW%3C%2Ftext%3E%3C%2Fsvg%3E">
-<link rel="stylesheet" href="/styles.css">
+<meta http-equiv="refresh" content="0; url=/influenceprogram">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.wingerapp.com/influenceprogram">
+<title>This page has moved — WingerApp</title>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="/en/">WingerApp</a>
-  <nav class="site-nav" aria-label="Main">
-      <a href="/en/">Home</a>
-      <a href="/en/privacy-policy">Privacy Policy</a>
-      <a href="/en/terms">Terms of Service</a>
-      <a href="/kvkk">KVKK Notice (TR)</a>
-      <a href="/acik-riza">Explicit Consent (TR)</a>
-      <a href="/safety">Safety Policy (TR)</a>
-      <a href="/en/influenceprogram" aria-current="page">Influencer Program</a>
-      <a href="/support">Support</a>
-    </nav>
-  <a class="lang-switch" href="/influenceprogram" hreflang="tr">Türkçe</a>
-</header>
-<main>
-<p class="last-updated">Last updated: 2026-09-25</p>
-<article><h1 id="wingerapp-influencer-program">WingerApp Influencer Program</h1>
-<p><strong>Last updated:</strong> 2026-09-25 · <strong>Status:</strong> Draft — the program is still not open to public applications; it currently runs only with a hand-picked, hand-approved set of initial influencers.</p>
-<blockquote><p>This page is written directly from the working code in <code>backend/app/api/influencer.py</code> and <code>backend/app/models/__init__.py</code> (<code>Influencer</code>, <code>DeviceAttribution</code>, <code>RevenueShare</code>, <code>InfluencerApplication</code>, <code>InfluencerPayoutDetails</code>, <code>InfluencerMagicLink</code>) and the current status recorded in <code>memory-bank/Features/Influencer-System.md</code>. Anything not yet decided is marked <code>[KARAR]</code> (Turkish for &quot;decision pending&quot;).</p></blockquote>
-<h2 id="what-the-program-is">What the program is</h2>
-<p>The WingerApp Influencer Program is a referral program: you get a personal invite code/link, and you earn a share of the in-app subscription spend of the users you bring in. There's no signup fee — your earnings are a percentage of what your referrals <strong>actually</strong> spend, not a flat rate.</p>
-<p><strong>Everything for influencers happens on the web.</strong> Applying, logging in, and tracking earnings never happens inside the WingerApp mobile app; the mobile app has no influencer-facing screen at all.</p>
-<h2 id="how-it-works">How it works</h2>
-<ol><li><strong>Apply and get approved.</strong> The program currently runs with a limited number of influencers (100 slots total). Once approved, you're assigned a personal invite code (format <code>WIN-XXXXXXXX</code>) and a referral link.</li><li><strong>Share your link.</strong> Anyone who taps your link is sent to the App Store/Google Play, and your code is copied to their device's clipboard automatically. The first time they open the app, the code is bound to their device's irreversibly hashed identifier automatically, permanently, and one time only — they never have to type anything.</li><li><strong>Earn.</strong> When that person makes a verified in-app purchase (subscription, etc.), a percentage of what they spend is credited to you as a revenue share. You also earn an additional share from purchases made by users referred by influencers in your own sub-network (L2).</li></ol>
-<h2 id="revenue-share-rates">Revenue share rates</h2>
-<div class="table-wrap"><table><thead><tr><th>Tier</th><th>Earns from</th><th>Rate</th></tr></thead><tbody><tr><td>L1 (direct influencer)</td><td>Users you referred directly</td><td>10%</td></tr><tr><td>L1 (direct influencer)</td><td>Users referred by L2 influencers in your own network (bonus)</td><td>5%</td></tr><tr><td>L2 (sub-network influencer)</td><td>Users you referred directly</td><td>5%</td></tr></tbody></table></div>
-<p>Rates are calculated on the <strong>actual amount spent</strong> by your referral, at the moment of each verified purchase. The bond between a device and an influencer is lifetime and one-time: a single device can be attributed to only one influencer, ever.</p>
-<p><strong>Revenue share accrues for every period the subscription is actually paid for, including automatic renewals — on iOS only. On Android, only the first purchase generates a share today; renewals do not.</strong></p>
-<p><strong>Important limitation:</strong> Earnings are only recorded for purchases made after the program becomes &quot;active&quot; for you (see &quot;Eligibility and rules&quot; below). Purchases made before that activation threshold is crossed do <strong>not</strong> generate a retroactive revenue share — this isn't a UI limitation, it's how the underlying system works.</p>
-<h2 id="transparency-and-privacy">Transparency and privacy</h2>
-<ul><li>The bond between you and a referred user is established through their device's <strong>irreversibly SHA-256-hashed</strong> identifier, never their name, email, or phone number. As an influencer, you never get access to a referred user's profile, photos, messages, or contact details — the system never shows you any of that.</li><li>Your own stats screen shows <strong>aggregate numbers only</strong>: total downloads, total/pending earnings, sub-network download and earnings counts, and a breakdown of purchases credited to you. You never get access to another influencer's data or to an individual user's identity.</li><li><strong>What data is collected about you, on what legal basis, and for how long</strong> is documented separately and in detail: <a href="/en/privacy-policy#13-influencer-business-partner-data-a-separate-data-subject-group">Privacy Policy §13 — &quot;Influencer / business-partner data&quot;</a>. That section covers a data-subject group and legal basis (contract + legal obligation) <strong>separate</strong> from the consent basis that applies to dating-app users — in short: your application details (name, email, social handle, audience size, your message) and, if approved, your payout details (IBAN, account-holder name, tax id, country) are collected only for this purpose and are never merged with user data.</li></ul>
-<h2 id="tracking-your-earnings-and-logging-in">Tracking your earnings and logging in</h2>
-<ul><li>WingerApp staff hand-deliver an approved influencer's code and secret access key <strong>manually</strong>; you use that key to query your own stats.</li><li>The backend also has a one-time email login link (magic link) built and working — but the web panel that would use it to give you self-service account management and a payout-details form is <strong>not publicly live yet</strong>. On top of that, no real email provider is wired up yet to send that link automatically; once you're approved, staff deliver your login details by hand. This page will be updated, and you'll be notified directly, once the panel goes live.</li><li>An endpoint that stores payout details (IBAN, etc.) genuinely works in the backend today, but the self-service form that talks to it will launch together with the web panel above. Until then, sharing payout details is coordinated directly with the WingerApp team.</li></ul>
-<h2 id="eligibility-and-rules">Eligibility and rules</h2>
-<ul><li>The program is capped at <strong>100 influencers total</strong>.</li><li>For earnings to start accruing to your account, WingerApp needs to cross a platform-wide <strong>10,000 install</strong> threshold (the WingerApp team can also unlock this manually in exceptional cases). Downloads you generate before that threshold count toward the total, but as noted above, no revenue share accrues until it's crossed.</li><li>Applications are currently handled by email, one at a time, by the WingerApp team — there's no self-serve signup form yet. A self-serve application endpoint genuinely exists in the backend now, but no public form/web panel uses it yet — this page is, as of today, a <strong>pre-application</strong> call.</li><li>Invoicing/tax obligations: <code>[KARAR]</code> — to be clarified by legal/finance.</li><li>Payout method, frequency, and minimum payout amount: <code>[KARAR]</code> — there is currently no automated/periodic payout flow in the code; every earning is tracked as &quot;pending&quot; or &quot;paid,&quot; and that status change is made manually by the WingerApp team.</li></ul>
-<h2 id="faq">FAQ</h2>
-<h3 id="how-long-after-i-apply-will-i-hear-back">How long after I apply will I hear back?</h3>
-<p><code>[KARAR]</code> — no fixed target turnaround time has been set yet. We'll email you once we've received your application.</p>
-<h3 id="how-do-i-track-my-earnings">How do I track my earnings?</h3>
-<p>Once approved, influencers can query their own stats (downloads, earnings, sub-network) using their code and secret access key. The self-service login/panel experience (see &quot;Tracking your earnings and logging in&quot; above) exists in the codebase but isn't publicly live yet; your login method will be sent to you once it launches.</p>
-<h3 id="when-and-how-do-i-get-paid">When and how do I get paid?</h3>
-<p><code>[KARAR]</code> — payout schedule, method (e.g. bank transfer), and minimum payout amount haven't been decided yet. In the system, every earning is tracked as &quot;pending&quot; or &quot;paid&quot;; today that status change is handled manually.</p>
-<h3 id="do-i-need-to-issue-an-invoice-or-handle-taxes">Do I need to issue an invoice or handle taxes?</h3>
-<p><code>[KARAR]</code> — this is a legal matter that can depend on your country and income level; it will be clarified before the program becomes fully operational, and this page will be updated accordingly.</p>
-<h3 id="are-earnings-currently-paid-out-with-real-money">Are earnings currently paid out with real money?</h3>
-<p>Not yet — but the reason has changed: the revenue-share calculation logic and the purchase verification feeding it are now <strong>wired end to end to real Apple/Google infrastructure</strong> — a purchase generates zero revenue share unless a real App Store/Play Store receipt is verified (this is no longer a test-only verification path). The reason real money hasn't started flowing yet is that WingerApp's App Store Connect/Google Play Console subscription-product setup, and the verification credentials that depend on it, aren't finished yet. Once that setup is complete, real revenue share will start accruing from verified purchases.</p>
-<h3 id="i-think-someone-came-from-my-link-but-attribution-didn-t-work-what-do-i-do">I think someone came from my link but attribution didn't work — what do I do?</h3>
-<p><a href="mailto:support@wingerapp.com?subject=Influencer%20attribution%20issue">Contact us</a> with the device identifier and approximate date, and we'll look into it.</p>
-<h2 id="apply">Apply</h2>
-<p>To submit a pre-application or ask a question, email us — we'll ask for your name, email address, social media handle(s), an estimate of your audience size, and any message you'd like to add:</p>
-<p><strong><a href="mailto:support@wingerapp.com?subject=Influencer%20application">Apply</a></strong></p>
-<p>Already an approved influencer and haven't received your code/access key yet? Reach us at the same address.</p></article>
-</main>
-<footer class="site-footer">
-  <p class="legal-entity">WingerApp — the legal entity is not yet incorporated; the registered trade name will be published here once it is.</p>
-  <p>
-    <a href="/privacy-policy">Privacy Policy</a> ·
-    <a href="/terms">Terms of Service</a> ·
-    <a href="/kvkk">KVKK</a> ·
-    <a href="/acik-riza">Explicit Consent</a> ·
-    <a href="/safety">Safety</a> ·
-    <a href="/en/influenceprogram">Influencer Program</a> ·
-    <a href="/support">Support</a>
-  </p>
-  <p><a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
-</footer>
+<p>This page has moved. <a href="/influenceprogram">Continue to the new URL: https://www.wingerapp.com/influenceprogram</a></p>
 </body>
 </html>
