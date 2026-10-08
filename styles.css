@@ -1,9 +1,9 @@
-/* WingerApp static site — single stylesheet, no external fonts/imports.
+/* Wybber static site — single stylesheet, no external fonts/imports.
  *
  * Brand language mirrors the app's design tokens (mobile-app/src/theme/tokens.ts):
- *   rose   #B72A55  = you / actions        violet #7B3BB4 = your Winger
+ *   rose   #B72A55  = you / actions        violet #7B3BB4 = your Wybber
  *   coral  #F0507F  = the logo highlight   sage   #3D7A59 = privacy reassurance
- *   blush-tinted neutrals, Plus Jakarta Sans for UI, Literata for the Winger's voice.
+ *   blush-tinted neutrals, Plus Jakarta Sans for UI, Literata for the Wybber's voice.
  * Light and dark follow the OS (the app has Light/Dark/System too).
  */
 

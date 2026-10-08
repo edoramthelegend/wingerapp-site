@@ -7,20 +7,20 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1A1417" media="(prefers-color-scheme: dark)">
-<title>Influencer Program — WingerApp</title>
-<meta name="description" content="WingerApp Influencer Program — earn a revenue share from the subscription spend of users you refer.">
-<link rel="canonical" href="https://www.wingerapp.com/influenceprogram">
-<link rel="alternate" hreflang="en" href="https://www.wingerapp.com/influenceprogram">
-<link rel="alternate" hreflang="tr" href="https://www.wingerapp.com/tr/influenceprogram">
-<link rel="alternate" hreflang="x-default" href="https://www.wingerapp.com/influenceprogram">
-<meta property="og:site_name" content="WingerApp">
+<title>Influencer Program — Wybber</title>
+<meta name="description" content="Wybber Influencer Program — earn a revenue share from the subscription spend of users you refer.">
+<link rel="canonical" href="https://www.wybber.com/influenceprogram">
+<link rel="alternate" hreflang="en" href="https://www.wybber.com/influenceprogram">
+<link rel="alternate" hreflang="tr" href="https://www.wybber.com/tr/influenceprogram">
+<link rel="alternate" hreflang="x-default" href="https://www.wybber.com/influenceprogram">
+<meta property="og:site_name" content="Wybber">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Influencer Program — WingerApp">
-<meta property="og:description" content="WingerApp Influencer Program — earn a revenue share from the subscription spend of users you refer.">
-<meta property="og:url" content="https://www.wingerapp.com/influenceprogram">
+<meta property="og:title" content="Influencer Program — Wybber">
+<meta property="og:description" content="Wybber Influencer Program — earn a revenue share from the subscription spend of users you refer.">
+<meta property="og:url" content="https://www.wybber.com/influenceprogram">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="tr_TR">
-<meta property="og:image" content="https://www.wingerapp.com/assets/hero-welcome.jpg">
+<meta property="og:image" content="https://www.wybber.com/assets/hero-welcome.jpg">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/favicon-180.png">
@@ -32,7 +32,7 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>WingerApp</span></a>
+    <a class="brand" href="/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
     <nav class="site-nav" aria-label="Main">
       <a href="/privacy-policy">Privacy</a>
       <a href="/terms">Terms</a>
@@ -45,12 +45,12 @@
 </header>
 <main id="main" class="main-article">
 
-<article class="prose"><h1 id="wingerapp-influencer-program">WingerApp Influencer Program</h1>
+<article class="prose"><h1 id="wybber-influencer-program">Wybber Influencer Program</h1>
 <p><strong>Last updated:</strong> 2026-09-25 · <strong>Status:</strong> Draft — the program is still not open to public applications; it currently runs only with a hand-picked, hand-approved set of initial influencers.</p>
 <blockquote><p>This page is written directly from the working code in <code>backend/app/api/influencer.py</code> and <code>backend/app/models/__init__.py</code> (<code>Influencer</code>, <code>DeviceAttribution</code>, <code>RevenueShare</code>, <code>InfluencerApplication</code>, <code>InfluencerPayoutDetails</code>, <code>InfluencerMagicLink</code>) and the current status recorded in <code>memory-bank/Features/Influencer-System.md</code>. Anything not yet decided is marked <code>[KARAR]</code> (Turkish for &quot;decision pending&quot;).</p></blockquote>
 <h2 id="what-the-program-is">What the program is</h2>
-<p>The WingerApp Influencer Program is a referral program: you get a personal invite code/link, and you earn a share of the in-app subscription spend of the users you bring in. There's no signup fee — your earnings are a percentage of what your referrals <strong>actually</strong> spend, not a flat rate.</p>
-<p><strong>Everything for influencers happens on the web.</strong> Applying, logging in, and tracking earnings never happens inside the WingerApp mobile app; the mobile app has no influencer-facing screen at all.</p>
+<p>The Wybber Influencer Program is a referral program: you get a personal invite code/link, and you earn a share of the in-app subscription spend of the users you bring in. There's no signup fee — your earnings are a percentage of what your referrals <strong>actually</strong> spend, not a flat rate.</p>
+<p><strong>Everything for influencers happens on the web.</strong> Applying, logging in, and tracking earnings never happens inside the Wybber mobile app; the mobile app has no influencer-facing screen at all.</p>
 <h2 id="how-it-works">How it works</h2>
 <ol><li><strong>Apply and get approved.</strong> The program currently runs with a limited number of influencers (100 slots total). Once approved, you're assigned a personal invite code (format <code>WIN-XXXXXXXX</code>) and a referral link.</li><li><strong>Share your link.</strong> Anyone who taps your link is sent to the App Store/Google Play, and your code is copied to their device's clipboard automatically. The first time they open the app, the code is bound to their device's irreversibly hashed identifier automatically, permanently, and one time only — they never have to type anything.</li><li><strong>Earn.</strong> When that person makes a verified in-app purchase (subscription, etc.), a percentage of what they spend is credited to you as a revenue share. You also earn an additional share from purchases made by users referred by influencers in your own sub-network (L2).</li></ol>
 <h2 id="revenue-share-rates">Revenue share rates</h2>
@@ -61,9 +61,9 @@
 <h2 id="transparency-and-privacy">Transparency and privacy</h2>
 <ul><li>The bond between you and a referred user is established through their device's <strong>irreversibly SHA-256-hashed</strong> identifier, never their name, email, or phone number. As an influencer, you never get access to a referred user's profile, photos, messages, or contact details — the system never shows you any of that.</li><li>Your own stats screen shows <strong>aggregate numbers only</strong>: total downloads, total/pending earnings, sub-network download and earnings counts, and a breakdown of purchases credited to you. You never get access to another influencer's data or to an individual user's identity.</li><li><strong>What data is collected about you, on what legal basis, and for how long</strong> is documented separately and in detail: <a href="/privacy-policy#13-influencer-business-partner-data-a-separate-data-subject-group">Privacy Policy §13 — &quot;Influencer / business-partner data&quot;</a>. That section covers a data-subject group and legal basis (contract + legal obligation) <strong>separate</strong> from the consent basis that applies to dating-app users — in short: your application details (name, email, social handle, audience size, your message) and, if approved, your payout details (IBAN, account-holder name, tax id, country) are collected only for this purpose and are never merged with user data.</li></ul>
 <h2 id="tracking-your-earnings-and-logging-in">Tracking your earnings and logging in</h2>
-<ul><li>WingerApp staff hand-deliver an approved influencer's code and secret access key <strong>manually</strong>; you use that key to query your own stats.</li><li>The backend also has a one-time email login link (magic link) built and working — but the web panel that would use it to give you self-service account management and a payout-details form is <strong>not publicly live yet</strong>. On top of that, no real email provider is wired up yet to send that link automatically; once you're approved, staff deliver your login details by hand. This page will be updated, and you'll be notified directly, once the panel goes live.</li><li>An endpoint that stores payout details (IBAN, etc.) genuinely works in the backend today, but the self-service form that talks to it will launch together with the web panel above. Until then, sharing payout details is coordinated directly with the WingerApp team.</li></ul>
+<ul><li>Wybber staff hand-deliver an approved influencer's code and secret access key <strong>manually</strong>; you use that key to query your own stats.</li><li>The backend also has a one-time email login link (magic link) built and working — but the web panel that would use it to give you self-service account management and a payout-details form is <strong>not publicly live yet</strong>. On top of that, no real email provider is wired up yet to send that link automatically; once you're approved, staff deliver your login details by hand. This page will be updated, and you'll be notified directly, once the panel goes live.</li><li>An endpoint that stores payout details (IBAN, etc.) genuinely works in the backend today, but the self-service form that talks to it will launch together with the web panel above. Until then, sharing payout details is coordinated directly with the Wybber team.</li></ul>
 <h2 id="eligibility-and-rules">Eligibility and rules</h2>
-<ul><li>The program is capped at <strong>100 influencers total</strong>.</li><li>For earnings to start accruing to your account, WingerApp needs to cross a platform-wide <strong>10,000 install</strong> threshold (the WingerApp team can also unlock this manually in exceptional cases). Downloads you generate before that threshold count toward the total, but as noted above, no revenue share accrues until it's crossed.</li><li>Applications are currently handled by email, one at a time, by the WingerApp team — there's no self-serve signup form yet. A self-serve application endpoint genuinely exists in the backend now, but no public form/web panel uses it yet — this page is, as of today, a <strong>pre-application</strong> call.</li><li>Invoicing/tax obligations: <code>[KARAR]</code> — to be clarified by legal/finance.</li><li>Payout method, frequency, and minimum payout amount: <code>[KARAR]</code> — there is currently no automated/periodic payout flow in the code; every earning is tracked as &quot;pending&quot; or &quot;paid,&quot; and that status change is made manually by the WingerApp team.</li></ul>
+<ul><li>The program is capped at <strong>100 influencers total</strong>.</li><li>For earnings to start accruing to your account, Wybber needs to cross a platform-wide <strong>10,000 install</strong> threshold (the Wybber team can also unlock this manually in exceptional cases). Downloads you generate before that threshold count toward the total, but as noted above, no revenue share accrues until it's crossed.</li><li>Applications are currently handled by email, one at a time, by the Wybber team — there's no self-serve signup form yet. A self-serve application endpoint genuinely exists in the backend now, but no public form/web panel uses it yet — this page is, as of today, a <strong>pre-application</strong> call.</li><li>Invoicing/tax obligations: <code>[KARAR]</code> — to be clarified by legal/finance.</li><li>Payout method, frequency, and minimum payout amount: <code>[KARAR]</code> — there is currently no automated/periodic payout flow in the code; every earning is tracked as &quot;pending&quot; or &quot;paid,&quot; and that status change is made manually by the Wybber team.</li></ul>
 <h2 id="faq">FAQ</h2>
 <h3 id="how-long-after-i-apply-will-i-hear-back">How long after I apply will I hear back?</h3>
 <p><code>[KARAR]</code> — no fixed target turnaround time has been set yet. We'll email you once we've received your application.</p>
@@ -74,31 +74,31 @@
 <h3 id="do-i-need-to-issue-an-invoice-or-handle-taxes">Do I need to issue an invoice or handle taxes?</h3>
 <p><code>[KARAR]</code> — this is a legal matter that can depend on your country and income level; it will be clarified before the program becomes fully operational, and this page will be updated accordingly.</p>
 <h3 id="are-earnings-currently-paid-out-with-real-money">Are earnings currently paid out with real money?</h3>
-<p>Not yet — but the reason has changed: the revenue-share calculation logic and the purchase verification feeding it are now <strong>wired end to end to real Apple/Google infrastructure</strong> — a purchase generates zero revenue share unless a real App Store/Play Store receipt is verified (this is no longer a test-only verification path). The reason real money hasn't started flowing yet is that WingerApp's App Store Connect/Google Play Console subscription-product setup, and the verification credentials that depend on it, aren't finished yet. Once that setup is complete, real revenue share will start accruing from verified purchases.</p>
+<p>Not yet — but the reason has changed: the revenue-share calculation logic and the purchase verification feeding it are now <strong>wired end to end to real Apple/Google infrastructure</strong> — a purchase generates zero revenue share unless a real App Store/Play Store receipt is verified (this is no longer a test-only verification path). The reason real money hasn't started flowing yet is that Wybber's App Store Connect/Google Play Console subscription-product setup, and the verification credentials that depend on it, aren't finished yet. Once that setup is complete, real revenue share will start accruing from verified purchases.</p>
 <h3 id="i-think-someone-came-from-my-link-but-attribution-didn-t-work-what-do-i-do">I think someone came from my link but attribution didn't work — what do I do?</h3>
-<p><a href="mailto:support@wingerapp.com?subject=Influencer%20attribution%20issue">Contact us</a> with the device identifier and approximate date, and we'll look into it.</p>
+<p><a href="mailto:support@wybber.com?subject=Influencer%20attribution%20issue">Contact us</a> with the device identifier and approximate date, and we'll look into it.</p>
 <h2 id="apply">Apply</h2>
 <p>To submit a pre-application or ask a question, email us — we'll ask for your name, email address, social media handle(s), an estimate of your audience size, and any message you'd like to add:</p>
-<p><strong><a href="mailto:support@wingerapp.com?subject=Influencer%20application">Apply</a></strong></p>
+<p><strong><a href="mailto:support@wybber.com?subject=Influencer%20application">Apply</a></strong></p>
 <p>Already an approved influencer and haven't received your code/access key yet? Reach us at the same address.</p></article>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="brand" href="/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>WingerApp</span></a>
+      <a class="brand" href="/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
       <p class="footer-tag">Private hearts, smart matches.</p>
-      <p class="footer-contact"><span>Contact:</span> <a href="mailto:support@wingerapp.com">support@wingerapp.com</a></p>
+      <p class="footer-contact"><span>Contact:</span> <a href="mailto:support@wybber.com">support@wybber.com</a></p>
     </div>
     <div class="footer-col">
       <h2>Legal</h2>
       <ul><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms">Terms of Service</a></li><li><a href="/safety">Safety and Moderation</a></li><li><a href="/kvkk">KVKK Notice (Turkish)</a></li><li><a href="/acik-riza">Explicit Consent (Turkish)</a></li></ul>
     </div>
     <div class="footer-col">
-      <h2>WingerApp</h2>
+      <h2>Wybber</h2>
       <ul><li><a href="/">Home</a></li><li><a href="/support">Support and account deletion</a></li><li><a href="/influenceprogram">Influencer Program</a></li></ul>
     </div>
   </div>
-  <p class="legal-entity">Winger company</p>
+  <p class="legal-entity">Wybber company</p>
 </footer>
 </body>
 </html>
