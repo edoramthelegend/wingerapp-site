@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-bvY/Gslhz6pJkWfVgkOVJJEd3VNTN7/mVzVSwlg9PUM='; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1A1417" media="(prefers-color-scheme: dark)">
+<title>Get Wybber — Wybber</title>
+<meta name="description" content="Open your Wybber invite: copy your invite code and install the app.">
+<link rel="canonical" href="https://www.wybber.com/dl">
+<link rel="alternate" hreflang="en" href="https://www.wybber.com/dl">
+<link rel="alternate" hreflang="tr" href="https://www.wybber.com/tr/dl">
+<link rel="alternate" hreflang="x-default" href="https://www.wybber.com/dl">
+<meta property="og:site_name" content="Wybber">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Get Wybber — Wybber">
+<meta property="og:description" content="Open your Wybber invite: copy your invite code and install the app.">
+<meta property="og:url" content="https://www.wybber.com/dl">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta property="og:image" content="https://www.wybber.com/assets/hero-welcome.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/favicon-180.png">
+<link rel="preload" href="/assets/fonts/PlusJakartaSans_400Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/fonts/PlusJakartaSans_700Bold.woff" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body class="layout-article">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/privacy-policy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/safety">Safety</a>
+      <a href="/influenceprogram">Influencers</a>
+      <a href="/support">Support</a>
+    </nav>
+    <a class="lang-switch" href="/tr/dl" hreflang="tr" lang="tr" title="Bu sayfayı Türkçe oku">Türkçe</a>
+  </div>
+</header>
+<main id="main" class="main-article">
+
+<article class="prose">
+<h1>Get Wybber</h1>
+<p>Wybber is a dating app where your profile, photos and chats stay on your phone.</p>
+<div id="dl-no-code">
+<h2>Your invite code</h2>
+<p>Open this page from your invitation link to see your invite code. A code looks like <code>WIN-XXXXXXXX</code>. Keep it: after installing, Wybber asks for it during setup under &ldquo;Have an invite code?&rdquo;.</p>
+</div>
+<div id="dl-with-code" hidden>
+<div class="card card-flat dl-card">
+<h2>Your invite code</h2>
+<p class="dl-code" id="dl-code"></p>
+<p><button type="button" id="dl-copy" class="btn btn-primary">Copy code</button></p>
+<p id="dl-copied" hidden>Copied. Paste it when Wybber asks for an invite code.</p>
+</div>
+</div>
+<p>Wybber is not on the App Store yet. Come back to this link when it launches, or write to us at <a href="mailto:support@wybber.com">support@wybber.com</a>.</p>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
+      <p class="footer-tag">Private hearts, smart matches.</p>
+      <p class="footer-contact"><span>Contact:</span> <a href="mailto:support@wybber.com">support@wybber.com</a></p>
+    </div>
+    <div class="footer-col">
+      <h2>Legal</h2>
+      <ul><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms">Terms of Service</a></li><li><a href="/safety">Safety and Moderation</a></li><li><a href="/kvkk">KVKK Notice (Turkish)</a></li><li><a href="/acik-riza">Explicit Consent (Turkish)</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h2>Wybber</h2>
+      <ul><li><a href="/">Home</a></li><li><a href="/support">Support and account deletion</a></li><li><a href="/influenceprogram">Influencer Program</a></li></ul>
+    </div>
+  </div>
+  <p class="legal-entity">Wybber company</p>
+</footer>
+<script>(function () {
+  var m = /(?:^|[?&])ref=(WIN-[A-Z0-9]{8})(?:&|$)/.exec(String(location.search));
+  if (!m) { return; }
+  var code = m[1];
+  var withCode = document.getElementById('dl-with-code');
+  var noCode = document.getElementById('dl-no-code');
+  var out = document.getElementById('dl-code');
+  var btn = document.getElementById('dl-copy');
+  var done = document.getElementById('dl-copied');
+  if (!withCode || !noCode || !out || !btn) { return; }
+  out.textContent = code;
+  noCode.hidden = true;
+  withCode.hidden = false;
+  function ok() { if (done) { done.hidden = false; } }
+  function fallback() {
+    var r = document.createRange();
+    r.selectNodeContents(out);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+    try { if (document.execCommand('copy')) { ok(); } } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(ok, fallback);
+    } else {
+      fallback();
+    }
+  });
+})();</script>
+</body>
+</html>
