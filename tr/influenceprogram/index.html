@@ -7,21 +7,23 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1A1417" media="(prefers-color-scheme: dark)">
-<title>Influencer Programı — Wybber</title>
-<meta name="description" content="Wybber Influencer Programı — davet kodunuzla getirdiğiniz kullanıcıların abonelik harcamasından pay kazanın.">
+<title>İçerik Üretici Programı — Wybber</title>
+<meta name="description" content="Wybber İçerik Üretici Programı: davet bağlantını paylaş, takipçilerinin aldığı aboneliklerden pay kazan.">
 <link rel="canonical" href="https://www.wybber.com/tr/influenceprogram">
 <link rel="alternate" hreflang="en" href="https://www.wybber.com/influenceprogram">
 <link rel="alternate" hreflang="tr" href="https://www.wybber.com/tr/influenceprogram">
 <link rel="alternate" hreflang="x-default" href="https://www.wybber.com/influenceprogram">
 <meta property="og:site_name" content="Wybber">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Influencer Programı — Wybber">
-<meta property="og:description" content="Wybber Influencer Programı — davet kodunuzla getirdiğiniz kullanıcıların abonelik harcamasından pay kazanın.">
+<meta property="og:title" content="İçerik Üretici Programı — Wybber">
+<meta property="og:description" content="Wybber İçerik Üretici Programı: davet bağlantını paylaş, takipçilerinin aldığı aboneliklerden pay kazan.">
 <meta property="og:url" content="https://www.wybber.com/tr/influenceprogram">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:locale:alternate" content="en_US">
-<meta property="og:image" content="https://www.wybber.com/assets/hero-welcome.jpg">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://www.wybber.com/assets/og-wybber.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/favicon-180.png">
 <link rel="preload" href="/assets/fonts/PlusJakartaSans_400Regular.woff" as="font" type="font/woff" crossorigin>
@@ -33,69 +35,60 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="/tr/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
-    <nav class="site-nav" aria-label="Ana">
-      <a href="/tr/privacy-policy">Gizlilik</a>
-      <a href="/tr/terms">Koşullar</a>
-      <a href="/tr/safety">Güvenlik</a>
-      <a href="/tr/influenceprogram" aria-current="page">Influencer</a>
+    <nav class="site-nav" aria-label="Ana menü">
+      <a href="/tr/#how">Nasıl çalışır</a>
+      <a href="/tr/#plans">Paketler</a>
+      <a href="/tr/safety-center">Güvenlik</a>
       <a href="/tr/support">Destek</a>
     </nav>
-    <a class="lang-switch" href="/influenceprogram" hreflang="en" lang="en" title="Read this page in English">English</a>
+    <nav class="lang-switch" aria-label="Dil"><a href="/influenceprogram" hreflang="en" lang="en" title="Read this page in English">English</a></nav>
   </div>
 </header>
 <main id="main" class="main-article">
 
-<article class="prose"><h1 id="wybber-influencer-programi">Wybber Influencer Programı</h1>
-<p><strong>Son güncelleme:</strong> 2026-09-25 · <strong>Durum:</strong> Taslak — program hâlâ genel başvuruya açık değil; şu an yalnızca Wybber ekibinin elle seçip onayladığı öncü influencer'larla yürütülüyor.</p>
-<blockquote><p>Bu sayfa, <code>backend/app/api/influencer.py</code> ve <code>backend/app/models/__init__.py</code>'deki (<code>Influencer</code>, <code>DeviceAttribution</code>, <code>RevenueShare</code>, <code>InfluencerApplication</code>, <code>InfluencerPayoutDetails</code>, <code>InfluencerMagicLink</code>) gerçek çalışan koda ve <code>memory-bank/Features/Influencer-System.md</code>'deki güncel durum kaydına bakılarak yazılmıştır. Henüz karara bağlanmamış noktalar <code>[KARAR]</code> ile işaretlenmiştir.</p></blockquote>
-<h2 id="program-nedir">Program nedir</h2>
-<p>Wybber Influencer Programı, kendinize özel bir davet kodu/linkiyle getirdiğiniz kullanıcıların uygulama içi abonelik harcamasından size pay verilen bir yönlendirme (referral) programıdır. Kayıt ücreti yoktur; kazancınız, getirdiğiniz kişilerin <strong>gerçekten</strong> yaptığı satın almaların bir yüzdesidir — sabit bir liste fiyatı değil.</p>
-<p><strong>Influencer'lar için her şey web üzerinden yürütülür.</strong> Başvuru, giriş ve kazanç takibi hiçbir zaman Wybber mobil uygulaması üzerinden yapılmaz; mobil uygulamada influencer'a özel bir ekran yoktur.</p>
+<article class="prose"><h1 id="wybber-icerik-uretici-programi">Wybber İçerik Üretici Programı</h1>
+<p><strong>Son güncelleme:</strong> 2026-10-14</p>
+<p>Wybber’ı takipçilerinle paylaş, aldıkları aboneliklerden pay kazan. Katılım ücreti yok: kazancın, getirdiğin kişilerin gerçekten harcadığı tutarın bir yüzdesi.</p>
+<blockquote><p><strong>Şu anki durum:</strong> Wybber henüz App Store’da ya da Google Play’de değil. Şimdiden ön başvuru alıyoruz; program <strong>100 içerik üreticiyle</strong> sınırlı.</p></blockquote>
 <h2 id="nasil-calisir">Nasıl çalışır</h2>
-<ol><li><strong>Başvurun ve onaylanın.</strong> Program şu an sınırlı sayıda influencer ile (toplam en fazla 100 kişi) yürütülüyor. Başvurunuz onaylanırsa size özel bir davet kodu (<code>WIN-XXXXXXXX</code> biçiminde) ve bir yönlendirme linki tanımlanır.</li><li><strong>Linkinizi paylaşın.</strong> Linke tıklayan biri App Store/Google Play'e yönlendirilir; kodunuz otomatik olarak cihazının panosuna kopyalanır. Uygulamayı ilk açtığında kod, cihazının geri döndürülemez biçimde hash'lenmiş kimliğine otomatik, kalıcı ve tek seferlik olarak bağlanır — ayrıca bir şey yazmasına gerek kalmaz.</li><li><strong>Kazanın.</strong> O kişi uygulama içinden doğrulanmış bir satın alma (abonelik vb.) yaptığında, harcamasının bir yüzdesi sizin hesabınıza gelir payı olarak yazılır. Kendi davet ettiğiniz alt-ağdaki (L2) influencer'ların getirdiği kullanıcıların harcamasından da ek bir pay alırsınız.</li></ol>
-<h2 id="kazanc-oranlari">Kazanç oranları</h2>
-<div class="table-wrap"><table><thead><tr><th>Kademe</th><th>Kimden kazanır</th><th>Oran</th></tr></thead><tbody><tr><td>L1 (doğrudan influencer)</td><td>Kendi doğrudan getirdiği kullanıcılar</td><td>%10</td></tr><tr><td>L1 (doğrudan influencer)</td><td>Kendi davet ettiği L2 influencer'ların ağı (ek pay)</td><td>%5</td></tr><tr><td>L2 (alt-ağ influencer'ı)</td><td>Kendi doğrudan getirdiği kullanıcılar</td><td>%5</td></tr></tbody></table></div>
-<p>Oranlar getirdiğiniz kullanıcının <strong>gerçek harcaması</strong> üzerinden, her doğrulanmış satın alma anında hesaplanır. Bir cihaz ile influencer arasındaki bağ ömür boyu ve tek seferliktir: bir cihaz yalnızca bir kez, yalnızca bir influencer'a bağlanabilir.</p>
-<p><strong>Gelir payı, otomatik yenilemeler dahil aboneliğin ödendiği her dönem için işler; yalnızca iOS'ta — Android'de şu an yalnızca ilk satın alma pay üretir, yenilemeler üretmez.</strong></p>
-<p><strong>Önemli kısıtlama:</strong> Kazançlar yalnızca program sizin için &quot;aktif&quot; hale geldikten (bkz. &quot;Kimler başvurabilir ve kurallar&quot;) sonraki satın almalar için kaydedilir. Aktivasyon eşiği aşılmadan önce yapılmış satın almalar için geriye dönük gelir payı <strong>oluşturulmaz</strong> — bu bir arayüz kısıtı değil, sistemin çalışma şeklidir.</p>
-<h2 id="seffaflik-ve-gizlilik">Şeffaflık ve gizlilik</h2>
-<ul><li>Sizinle bir kullanıcı arasındaki bağ, o kişinin adı/e-postası/telefonu ile değil, cihazının <strong>geri döndürülemez biçimde SHA-256 ile hash'lenmiş</strong> kimliğiyle kurulur. Influencer olarak hiçbir zaman getirdiğiniz kişilerin profiline, fotoğrafına, mesajına veya iletişim bilgisine erişiminiz olmaz — sistem bunları size hiç göstermez.</li><li>Kendi istatistik ekranınızda yalnızca <strong>toplu sayılar</strong> görürsünüz: toplam indirme sayısı, toplam/bekleyen kazanç, alt-ağ indirme ve kazanç sayıları, ve kendi adınıza yazılmış satın almaların bir dökümü. Diğer influencer'ların verisine veya tek tek kullanıcının kimliğine hiçbir zaman erişiminiz olmaz.</li><li><strong>Sizin hakkınızda hangi verinin toplandığı, hangi hukuki sebeple işlendiği ve ne kadar süreyle saklandığı</strong> ayrıca ve ayrıntılı olarak belgelenmiştir: <a href="/tr/privacy-policy#13-influencer-is-ortagi-verileri-ayri-bir-veri-sahibi-grubu">Gizlilik Politikası §13 — &quot;Influencer / iş ortağı verileri&quot;</a>. Bu bölüm, flört-uygulaması kullanıcılarını ilgilendiren rıza temelinden <strong>ayrı</strong> bir veri sahibi grubunu ve hukuki temeli (sözleşme + kanuni yükümlülük) kapsar — özetle: başvuru bilgileriniz (ad, e-posta, sosyal medya hesabı, kitle büyüklüğü, mesajınız) ve onaylanırsanız ödeme bilgileriniz (IBAN, hesap sahibi adı, vergi kimlik no, ülke) yalnızca bu amaçla toplanır ve kullanıcı verilerinizle hiçbir zaman birleştirilmez.</li></ul>
-<h2 id="kazancinizi-takip-etme-ve-giris">Kazancınızı takip etme ve giriş</h2>
-<ul><li>Onaylanan influencer'lara Wybber ekibi bir kod ve gizli bir erişim anahtarı <strong>elle</strong> iletir; bu anahtarla kendi istatistiklerinizi sorgulayabilirsiniz.</li><li>Backend'de e-posta ile tek kullanımlık giriş linki (magic link) altyapısı da hazır — ancak bunu kullanacak, kendi kendine hesap yönetimi ve ödeme bilgisi formu sunan web paneli <strong>henüz herkese açık olarak yayınlanmadı</strong>. Ayrıca bugün itibarıyla giriş linkini otomatik gönderen gerçek bir e-posta sağlayıcısı da entegre edilmedi; onaylandığınızda giriş bilgileriniz Wybber ekibi tarafından elden iletilir. Panel yayına alındığında bu sayfa güncellenecek ve size doğrudan bildirilecektir.</li><li>Ödeme bilgisi (IBAN vb.) toplayan bir uç nokta artık kodda gerçek olarak çalışıyor, ancak buna erişen self-servis form da yukarıdaki web paneliyle birlikte yayına alınacak. O zamana kadar ödeme bilgisi paylaşımı Wybber ekibiyle doğrudan koordine edilir.</li></ul>
-<h2 id="kimler-basvurabilir-ve-kurallar">Kimler başvurabilir ve kurallar</h2>
-<ul><li>Program toplam <strong>en fazla 100 influencer</strong> ile sınırlıdır.</li><li>Kazançların hesabınıza yansımaya başlaması için Wybber'ın platform genelinde en az <strong>10.000 indirme</strong> eşiğini aşması gerekir (Wybber ekibi bu eşiği istisnai durumlarda manuel olarak da açabilir). Bu eşik aşılana kadar getirdiğiniz indirmeler sayılır, ancak yukarıda belirtildiği gibi gelir payı biriktirilmez.</li><li>Başvurular şu an bir form veya öz-servis kayıt ekranı üzerinden değil, doğrudan e-posta ile alınıyor ve Wybber ekibi tarafından tek tek değerlendiriliyor. Backend'de öz-servis bir başvuru uç noktası artık gerçek olarak var, ancak bunu kullanan herkese açık bir form/web paneli henüz yayınlanmadı — bu sayfa bugün itibarıyla bir <strong>ön başvuru</strong> çağrısıdır.</li><li>Fatura/vergi yükümlülükleri: <code>[KARAR]</code> — hukuki ve finans ekibi netleştirecek.</li><li>Ödeme yöntemi ve sıklığı ile asgari ödeme tutarı: <code>[KARAR]</code> — bugün itibarıyla kodda otomatik/periyodik bir ödeme akışı yok; her kazanç &quot;bekliyor&quot; veya &quot;ödendi&quot; durumunda tutulur ve bu durum değişikliği Wybber ekibi tarafından elle yapılır.</li></ul>
-<h2 id="sik-sorulan-sorular">Sık sorulan sorular</h2>
-<h3 id="basvurumdan-sonra-ne-kadar-surede-donus-alirim">Başvurumdan sonra ne kadar sürede dönüş alırım?</h3>
-<p><code>[KARAR]</code> — henüz sabit bir hedef süre belirlenmedi. Başvurunuzu aldığımızda size e-posta ile dönüş yapacağız.</p>
-<h3 id="kazancimi-nasil-takip-ederim">Kazancımı nasıl takip ederim?</h3>
-<p>Onaylanan influencer'lar, kendilerine verilen kod ve gizli erişim anahtarıyla kendi istatistiklerini (indirme, kazanç, alt-ağ) sorgulayabilir. Öz-servis giriş ve panel deneyimi (&quot;Kazancınızı takip etme ve giriş&quot; bölümüne bakın) kodda hazır ama henüz herkese açık yayınlanmadı; yayına alındığında giriş yönteminiz size iletilecektir.</p>
+<ol><li><strong>Başvur.</strong> <a href="https://influencer.wingerapp.com/influencer/apply" rel="noopener noreferrer">Başvuru formunu</a> doldur ya da <a href="mailto:support@wybber.com?subject=%C4%B0%C3%A7erik%20%C3%BCretici%20ba%C5%9Fvurusu">bize e-posta gönder</a>. Her başvuruyu tek tek inceliyoruz.</li><li><strong>Bağlantını al.</strong> Onaylanınca sana özel bir davet kodu (<code>WIN-XXXXXXXX</code> biçiminde) ve paylaşabileceğin bir bağlantı verilir.</li><li><strong>Paylaş.</strong> Bağlantını açan kişi kodunu görür ve tek dokunuşla kopyalar. Wybber’ı senin kodunla kurduğunda <strong>14 gün ücretsiz Link</strong> kazanır.</li><li><strong>Kazan.</strong> Getirdiğin biri abonelik aldığında, tutarın bir payı senin hesabına yazılır.</li></ol>
+<h2 id="ne-kazanirsin">Ne kazanırsın</h2>
+<div class="table-wrap"><table><thead><tr><th>Sen</th><th>Kimden kazanırsın</th><th>Pay</th></tr></thead><tbody><tr><td>İçerik üretici (1. seviye)</td><td>Senin getirdiğin kişilerin aldığı abonelikler</td><td>%10</td></tr><tr><td>İçerik üretici (1. seviye)</td><td>Davet ettiğin içerik üreticilerin getirdiği kişilerin aldığı abonelikler</td><td>%5</td></tr><tr><td>Davetle gelen içerik üretici (2. seviye)</td><td>Senin getirdiğin kişilerin aldığı abonelikler</td><td>%5</td></tr></tbody></table></div>
+<ul><li>Pay, App Store’un ya da Google Play’in her satın alma için bildirdiği tutar üzerinden, <strong>KDV ve satış vergisi hariç</strong> hesaplanır. Vergi kurallarını henüz doğrulamadığımız bir ülkede pay, doğrulayana kadar bekletilir.</li><li>iPhone’da aboneliğin her yenilenmesinden kazanırsın. Android’de şimdilik yalnızca ilk satın almadan kazanırsın; yenilemeler henüz sayılmıyor.</li><li>Bir kişi sana ömür boyu, yalnızca tek bir içerik üreticiye bağlanır.</li><li>Kazanç, Wybber <strong>10.000 kuruluma</strong> ulaştığında başlar. Bu sayıya ulaşılana kadar getirdiğin kurulumlar sayılır, ama o tarihten önceki satın almalar sonradan pay üretmez.</li></ul>
+<h2 id="senin-ve-onlarin-gizliligi">Senin ve onların gizliliği</h2>
+<ul><li>Getirdiğin kişilerin kim olduğunu asla görmezsin: ad, profil, fotoğraf ya da mesaj yok. Onları sana yalnızca telefonlarından türetilen, ad taşımayan bir numarayla bağlarız; bu numaradan kim olduklarını göremezsin.</li><li>Panelinde yalnızca toplamlar görünür: kurulumlar, kazançlar (bekleyen ve ödenen) ve ağının sayıları.</li><li>İçerik üretici olarak hakkında hangi bilgileri (başvuru ve ödeme bilgileri), neden ve ne kadar süre tuttuğumuz <a href="/tr/privacy-policy#13-influencer-is-ortagi-verileri-ayri-bir-veri-sahibi-grubu">Gizlilik Politikası 13. bölümde</a> anlatılıyor. Bu bilgiler hiçbir zaman flört uygulaması verileriyle birleştirilmez.</li></ul>
+<h2 id="panelin">Panelin</h2>
+<p><a href="https://influencer.wingerapp.com/influencer/login" rel="noopener noreferrer">https://influencer.wingerapp.com</a> adresinden tek kullanımlık bir giriş bağlantısıyla girersin. Otomatik giriş e-postaları devreye girene kadar bağlantıyı ekibimiz sana elle gönderir. Panelde kurulumlarını ve kazançlarını takip edebilir, ödeme bilgilerini ekleyebilirsin.</p>
+<h2 id="sorular">Sorular</h2>
 <h3 id="odeme-ne-zaman-ve-nasil-yapilir">Ödeme ne zaman ve nasıl yapılır?</h3>
-<p><code>[KARAR]</code> — ödeme takvimi, yöntemi (banka havalesi vb.) ve asgari ödeme tutarı henüz belirlenmedi. Sistemde her kazanç &quot;bekliyor&quot; veya &quot;ödendi&quot; durumunda tutuluyor; bugün itibarıyla bu durum değişikliği elle yönetiliyor.</p>
-<h3 id="vergi-fatura-duzenlemem-gerekiyor-mu">Vergi/fatura düzenlemem gerekiyor mu?</h3>
-<p><code>[KARAR]</code> — bu, ülkenize ve gelir tutarınıza göre değişebilecek hukuki bir konudur; program operasyonel hale gelmeden önce netleştirilecek ve bu sayfa güncellenecektir.</p>
-<h3 id="kazanclar-su-an-gercek-para-ile-mi-odeniyor">Kazançlar şu an gerçek para ile mi ödeniyor?</h3>
-<p>Henüz değil, ama nedeni değişti: gelir payı hesaplama mantığı ve bunu besleyen satın alma doğrulaması artık <strong>gerçek Apple/Google altyapısına uçtan uca bağlı</strong> — bir satın alma, gerçek bir App Store/Play Store makbuzu doğrulanmadan hiçbir gelir payı oluşturmaz (test amaçlı bir doğrulama değildir). Bugün itibarıyla gerçek para akışının başlamamasının sebebi, Wybber'ın App Store Connect/Google Play Console üzerindeki abonelik ürünü kurulumunun ve buna bağlı doğrulama anahtarlarının henüz tamamlanmamış olmasıdır. Bu kurulum tamamlandığında, doğrulanan satın almalar üzerinden gerçek gelir payı birikmeye başlayacaktır.</p>
-<h3 id="bir-kullanicinin-benim-linkimden-geldigini-ama-attribution-in-calismadigini-dusunuyorum-ne-yapmaliyim">Bir kullanıcının benim linkimden geldiğini ama attribution'ın çalışmadığını düşünüyorum, ne yapmalıyım?</h3>
-<p><a href="mailto:support@wybber.com?subject=Influencer%20attribution%20sorunu">Bize yazın</a> — cihaz kimliği ve tahmini tarih ile birlikte durumu inceleriz.</p>
-<h2 id="basvurun">Başvurun</h2>
-<p>Programa ön başvuru yapmak veya sorularınızı iletmek için bize yazın — adınızı, e-posta adresinizi, sosyal medya hesap adlarınızı, tahmini takipçi/kitle büyüklüğünüzü ve eklemek istediğiniz bir mesajı paylaşmanızı isteyeceğiz:</p>
-<p><strong><a href="mailto:support@wybber.com?subject=Influencer%20ba%C5%9Fvurusu">Başvur</a></strong></p>
-<p>Zaten onaylanmış bir influencer iseniz ve kod/erişim anahtarınızı henüz almadıysanız, aynı adresten bize ulaşabilirsiniz.</p></article>
+<p>Kazançlar “bekliyor” ya da “ödendi” olarak izlenir. Ödeme takvimi, yöntemi ve en düşük ödeme tutarı ilk ödemelerden önce seninle netleştirilir.</p>
+<h3 id="fatura-kesmem-ya-da-vergi-odemem-gerekiyor-mu">Fatura kesmem ya da vergi ödemem gerekiyor mu?</h3>
+<p>Bu, ülkene ve gelirine göre değişir. Ayrıntıları ilk ödemeden önce seninle birlikte netleştiririz.</p>
+<h3 id="biri-benim-baglantimdan-geldi-ama-gorunmuyor-ne-yapmaliyim">Biri benim bağlantımdan geldi ama görünmüyor. Ne yapmalıyım?</h3>
+<p>Yaklaşık tarihle birlikte <a href="mailto:support@wybber.com?subject=%C4%B0%C3%A7erik%20%C3%BCretici%20ba%C4%9Flant%C4%B1%20sorunu">bize yaz</a>, inceleyelim.</p>
+<h2 id="basvur">Başvur</h2>
+<p><strong><a href="https://influencer.wingerapp.com/influencer/apply" rel="noopener noreferrer">Çevrimiçi başvur</a></strong> ya da adını, sosyal medya hesaplarını, yaklaşık takipçi sayını ve eklemek istediklerini <a href="mailto:support@wybber.com?subject=%C4%B0%C3%A7erik%20%C3%BCretici%20ba%C5%9Fvurusu">support@wybber.com</a> adresine gönder.</p></article>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
       <a class="brand" href="/tr/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
-      <p class="footer-tag">Private hearts, smart matches.</p>
+      <p class="footer-tag">Yapay zekâyla tanışmanın yeni dünyası.</p>
       <p class="footer-contact"><span>İletişim:</span> <a href="mailto:support@wybber.com">support@wybber.com</a></p>
     </div>
     <div class="footer-col">
-      <h2>Yasal</h2>
-      <ul><li><a href="/tr/privacy-policy">Gizlilik Politikası</a></li><li><a href="/tr/terms">Kullanım Koşulları</a></li><li><a href="/tr/safety">Güvenlik ve Moderasyon</a></li><li><a href="/kvkk">KVKK Aydınlatma Metni</a></li><li><a href="/acik-riza">Açık Rıza Metinleri</a></li></ul>
+      <h2>Wybber</h2>
+      <ul><li><a href="/tr/#how">Nasıl çalışır</a></li><li><a href="/tr/#plans">Paketler</a></li><li><a href="/tr/#travel">Seyahat Modu</a></li><li><a href="/tr/safety-center">Güvenlik Merkezi</a></li><li><a href="/tr/influenceprogram">İçerik Üretici Programı</a></li></ul>
     </div>
     <div class="footer-col">
-      <h2>Wybber</h2>
-      <ul><li><a href="/tr/">Ana sayfa</a></li><li><a href="/tr/support">Destek ve hesap silme</a></li><li><a href="/tr/influenceprogram">Influencer Programı</a></li></ul>
+      <h2>Yardım</h2>
+      <ul><li><a href="/tr/support">Destek</a></li><li><a href="/tr/support#delete-account">Hesabını sil</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h2>Yasal</h2>
+      <ul><li><a href="/tr/privacy-policy">Gizlilik Politikası</a></li><li><a href="/tr/terms">Kullanım Koşulları</a></li><li><a href="/tr/community-guidelines">Topluluk Kuralları</a></li><li><a href="/tr/safety">Güvenlik ve Moderasyon Politikası</a></li></ul>
+      <h3 class="footer-sub">Türkiye’deki kullanıcılar için</h3>
+      <ul><li><a href="/kvkk">KVKK Aydınlatma Metni</a></li><li><a href="/acik-riza">Açık Rıza Metinleri</a></li></ul>
     </div>
   </div>
   <p class="legal-entity">Wybber company</p>

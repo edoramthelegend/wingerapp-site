@@ -17,8 +17,10 @@
 <meta property="og:description" content="Özel nitelikli kişisel veriler için açık rıza metinleri (KVKK m.6).">
 <meta property="og:url" content="https://www.wybber.com/acik-riza">
 <meta property="og:locale" content="tr_TR">
-<meta property="og:image" content="https://www.wybber.com/assets/hero-welcome.jpg">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://www.wybber.com/assets/og-wybber.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/favicon-180.png">
 <link rel="preload" href="/assets/fonts/PlusJakartaSans_400Regular.woff" as="font" type="font/woff" crossorigin>
@@ -30,14 +32,13 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="/tr/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
-    <nav class="site-nav" aria-label="Ana">
-      <a href="/tr/privacy-policy">Gizlilik</a>
-      <a href="/tr/terms">Koşullar</a>
-      <a href="/tr/safety">Güvenlik</a>
-      <a href="/tr/influenceprogram">Influencer</a>
+    <nav class="site-nav" aria-label="Ana menü">
+      <a href="/tr/#how">Nasıl çalışır</a>
+      <a href="/tr/#plans">Paketler</a>
+      <a href="/tr/safety-center">Güvenlik</a>
       <a href="/tr/support">Destek</a>
     </nav>
-    <a class="lang-switch" href="/" hreflang="en" lang="en" title="Read this page in English">English</a>
+    <nav class="lang-switch" aria-label="Dil"><a href="/" hreflang="en" lang="en" title="Read this page in English">English</a></nav>
   </div>
 </header>
 <main id="main" class="main-article">
@@ -54,10 +55,11 @@
 <blockquote><p>&quot;Wybber'da eşleşme önerileri sunabilmemiz için cinsiyetinizi ve kiminle eşleşmek istediğinizi (ilgi cinsiyeti) bilmemiz gerekir. Bu bilgi, eşleştirme adaylarınızı belirlemek amacıyla sunucularımızda saklanır (fotoğraflarınızın, mesajlarınızın ve tercih cevaplarınızın aksine, bu iki alan cihazınızda kalmaz). Bu bilgi ayrıca, beni tanımlamayan, anlık ve 10'a yuvarlanmış toplu hizmet istatistiklerinde (cinsiyet ve ilgi cinsiyeti dağılımı) sayılmak için de kullanılır; bu sayılar saklanmaz. Bu bilgiyi, KVKK madde 6 kapsamında özel nitelikli veri sayılabileceğini bilerek, açıkça ve özgürce onaylıyorum. Bu onayı istediğim an Ayarlar → Cinsiyet ve ilgi cinsiyeti rızası'ndan geri çekebilirim; bu durumda bu iki alan sunucudan kalıcı olarak silinir, eşleştirme durur ve hesabım toplu hizmet istatistiklerine sayılmaz — hesabım ve mevcut sohbetlerim SİLİNMEZ. Dilersem bunun yerine hesabımı tamamen de silebilirim.&quot;</p></blockquote>
 <p><strong>Not:</strong> Bu veri, uygulamanın temel işlevi (eşleştirme) için zorunludur — reddedilmesi hâlinde hesap oluşturulamaz. Bu nedenle onay, kaydın bir parçası olarak, genel &quot;Gizlilik Politikasını okudum&quot; onayından bağımsız, <strong>kendi başlıklı ayrı bir onay kutusu</strong> ile alınır: cinsiyet/ilgi cinsiyeti seçildikten hemen sonra, &quot;Kiminle tanışmak istersin&quot; ekranında gösterilir (bkz. <code>docs/product/2026-09-19-onboarding-consent-copy.md</code>).</p>
 <hr>
-<h2 id="2-hassas-tercihler-inanc-pratigi-siyasi-gorus-yakinlik-mahremiyet-opsiyonel-varsayilan-kapali">2. Hassas Tercihler (İnanç Pratiği, Siyasi Görüş, Yakınlık/Mahremiyet) — Opsiyonel, Varsayılan Kapalı</h2>
-<p><strong>Ne toplanıyor:</strong> İsterseniz, tercih soru-cevabında inanç pratiğiniz, siyasi görüşünüz veya yakınlık/mahremiyet tercihleriniz gibi kategorilere cevap verebilirsiniz. Bu cevaplar <strong>her zaman cihazınızda kalır</strong>. Ayrı bir rıza olan &quot;Hassas Tercihler&quot;i <strong>açıkça</strong> açarsanız, bu cevaplar Wybber görüşmesi sırasında eşleştiği adayın <strong>cihazına</strong>, uçtan uca şifreli olarak paylaşılabilir hale gelir — <strong>sunucumuza hiçbir zaman gitmez</strong>. Bu grup onboarding'de sunulmaz; yalnızca Ayarlar → Tercihlerim'de, isteğe bağlı olarak girilir (bkz. <code>docs/legal/consent/sensitive-preferences-consent.tr.md</code>).</p>
+<h2 id="2-hassas-tercihler-inanc-pratigi-siyasi-gorus-yakinlik-mahremiyet-disarida-yakinlik-gonulluluk-opsiyonel-varsayilan-kapali">2. Hassas Tercihler (İnanç Pratiği, Siyasi Görüş, Yakınlık/Mahremiyet, Dışarıda Yakınlık, Gönüllülük) — Opsiyonel, Varsayılan Kapalı</h2>
+<blockquote><p><strong>[2026-10-14, kurucu kararı]</strong> &quot;Başkalarının yanında yakınlık göstermek&quot; ve &quot;gönüllülük&quot; soruları bu gruba alındı: kendiliğinden özel nitelikli veri olmayabilirler, ama inanç ya da cinsel yaşama işaret edebilirler. Bu iki soruya daha önce normal soru olarak verilmiş cevaplar bu rıza olmadan telefonda tutulmaz ve paylaşılmaz (güncellemede &quot;cevaplanmadı&quot;ya döner). Uygulamadaki rıza metni bu konuları adıyla saydığı için, bu rızayı daha önce vermiş olan herkese rıza bir kez yeniden sorulur.</p></blockquote>
+<p><strong>Ne toplanıyor:</strong> İsterseniz, tercih soru-cevabında inanç pratiğiniz, siyasi görüşünüz, yakınlık/mahremiyet tercihleriniz, başkalarının yanında yakınlık gösterme rahatlığınız veya gönüllülüğe ne kadar vakit ayırdığınız gibi kategorilere cevap verebilirsiniz. Bu cevaplar <strong>her zaman cihazınızda kalır</strong>. Ayrı bir rıza olan &quot;Hassas Tercihler&quot;i <strong>açıkça</strong> açarsanız, bu cevaplar Wybber görüşmesi sırasında eşleştiği adayın <strong>cihazına</strong>, uçtan uca şifreli olarak paylaşılabilir hale gelir — <strong>sunucumuza hiçbir zaman gitmez</strong>. Bu grup onboarding'de sunulmaz; yalnızca Ayarlar → Tercihlerim'de, isteğe bağlı olarak girilir (bkz. <code>docs/legal/consent/sensitive-preferences-consent.tr.md</code>).</p>
 <p><strong>Rıza metni (Ayarlar/Tercihlerim ekranında, gruba girmeden önce gösterilir):</strong></p>
-<blockquote><p>&quot;Hassas Tercihler: inanç pratiği, siyasi görüş ve yakınlık/mahremiyet ile ilgili tercih cevaplarımın, yalnızca eşleştiğim adayın cihazına — sunucuya değil — uçtan uca şifreli olarak, Wybber görüşmesi sırasında paylaşılmasına açıkça izin veriyorum. Bu izni istediğim an kapatabilirim; kapattığımda bu kategorilerdeki cevaplarım cihazımdan silinir. Kendi cihazımdaki cevaplarım her koşulda cihazımda kalır.&quot;</p></blockquote>
+<blockquote><p>&quot;Hassas Tercihler: inanç pratiği, siyasi görüş, yakınlık/mahremiyet, başkalarının yanında yakınlık gösterme ve gönüllülük ile ilgili tercih cevaplarımın, yalnızca eşleştiğim adayın cihazına — sunucuya değil — uçtan uca şifreli olarak, Wybber görüşmesi sırasında paylaşılmasına açıkça izin veriyorum. Bu izni istediğim an kapatabilirim; kapattığımda bu kategorilerdeki cevaplarım cihazımdan silinir. Kendi cihazımdaki cevaplarım her koşulda cihazımda kalır.&quot;</p></blockquote>
 <p>Bu izin <strong>varsayılan olarak kapalıdır</strong>; kullanıcı hiçbir şey yapmazsa bu kategori cevapları hiçbir zaman cihaz dışına çıkmaz.</p>
 <hr>
 <h2 id="3-yuz-dogrulama-biyometrik-veri-opsiyonel-ozellik">3. Yüz Doğrulama (Biyometrik Veri) — Opsiyonel Özellik</h2>
@@ -78,16 +80,22 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <a class="brand" href="/tr/"><img class="brand-mark" src="/assets/favicon-180.png" width="28" height="28" alt="" aria-hidden="true"><span>Wybber</span></a>
-      <p class="footer-tag">Private hearts, smart matches.</p>
+      <p class="footer-tag">Yapay zekâyla tanışmanın yeni dünyası.</p>
       <p class="footer-contact"><span>İletişim:</span> <a href="mailto:support@wybber.com">support@wybber.com</a></p>
     </div>
     <div class="footer-col">
-      <h2>Yasal</h2>
-      <ul><li><a href="/tr/privacy-policy">Gizlilik Politikası</a></li><li><a href="/tr/terms">Kullanım Koşulları</a></li><li><a href="/tr/safety">Güvenlik ve Moderasyon</a></li><li><a href="/kvkk">KVKK Aydınlatma Metni</a></li><li><a href="/acik-riza">Açık Rıza Metinleri</a></li></ul>
+      <h2>Wybber</h2>
+      <ul><li><a href="/tr/#how">Nasıl çalışır</a></li><li><a href="/tr/#plans">Paketler</a></li><li><a href="/tr/#travel">Seyahat Modu</a></li><li><a href="/tr/safety-center">Güvenlik Merkezi</a></li><li><a href="/tr/influenceprogram">İçerik Üretici Programı</a></li></ul>
     </div>
     <div class="footer-col">
-      <h2>Wybber</h2>
-      <ul><li><a href="/tr/">Ana sayfa</a></li><li><a href="/tr/support">Destek ve hesap silme</a></li><li><a href="/tr/influenceprogram">Influencer Programı</a></li></ul>
+      <h2>Yardım</h2>
+      <ul><li><a href="/tr/support">Destek</a></li><li><a href="/tr/support#delete-account">Hesabını sil</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h2>Yasal</h2>
+      <ul><li><a href="/tr/privacy-policy">Gizlilik Politikası</a></li><li><a href="/tr/terms">Kullanım Koşulları</a></li><li><a href="/tr/community-guidelines">Topluluk Kuralları</a></li><li><a href="/tr/safety">Güvenlik ve Moderasyon Politikası</a></li></ul>
+      <h3 class="footer-sub">Türkiye’deki kullanıcılar için</h3>
+      <ul><li><a href="/kvkk">KVKK Aydınlatma Metni</a></li><li><a href="/acik-riza">Açık Rıza Metinleri</a></li></ul>
     </div>
   </div>
   <p class="legal-entity">Wybber company</p>
