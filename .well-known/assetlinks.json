@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.wingerapp.mobile",
+      "sha256_cert_fingerprints": [
+        "44:B6:3B:C1:AF:86:94:CD:12:EE:CF:51:72:77:BE:68:89:53:81:F5:29:58:86:D7:32:EF:A8:15:4D:09:1F:42"
+      ]
+    }
+  }
+]
