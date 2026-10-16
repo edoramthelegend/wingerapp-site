@@ -1114,7 +1114,7 @@ button.btn {
   color: var(--ink-soft);
 }
 
-/* Hero privacy promise box (founder, 2026-10-14): prominent, right under the lead. */
+/* Hero privacy promise box (founder, 2026-10-14): prominent; since S7170 right under the headline (privacy leads). */
 .privacy-line {
   display: flex;
   align-items: flex-start;
