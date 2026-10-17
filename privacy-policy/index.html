@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src https://stats.wybber.com; connect-src 'self' https://stats.wybber.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1A1417" media="(prefers-color-scheme: dark)">
@@ -219,6 +219,11 @@
 <p>Write to support@wybber.com to:</p>
 <ul><li>ask for a copy of your data;</li><li>have wrong or incomplete data corrected;</li><li>have your application or account deleted — everything is deleted <strong>except the payment and tax records under the legal duty in §13.4</strong>.</li></ul>
 <p>If your account is active, our system also lets you erase your identity details with your own sign-in (there is no button for this in the dashboard yet, so the easiest way is to write to us). Either way, your identity fields (name, e-mail, and your application's social media handles and message) are deleted at once (overwritten with a fixed placeholder) and your account is deactivated. If your account is already deactivated, or you only applied (no account was created), the self-service route deliberately doesn't work — an old or leaked sign-in must not be able to erase an inactive account's data — so write to support@wybber.com and our staff will do the same erasure for you. Neither route touches the payment and tax records under the legal duty in §13.4.</p>
+<h2 id="website-visit-statistics-this-website-only">Website visit statistics (this website only)</h2>
+<p>This section is about the website wybber.com only, not about the Wybber app. The app contains no advertising or analytics tools (§4).</p>
+<p>To see which pages are read, we count visits to this website. For that we run a statistics tool that we host ourselves, on our own server (stats.wybber.com). It uses no cookies. No third party is involved, and the visit counts are not shared with any other company.</p>
+<ul><li><strong>What it counts:</strong> which page was opened, which site you came from, your browser, device type and language, and your approximate country. No name, e-mail address or account is attached to a visit.</li><li><strong>No cookies, nothing stored on your device.</strong></li><li><strong>Your IP address is not stored by the statistics tool.</strong> It is used only while your visit is received, to tell one visit from another, and is not kept. As with any web server, our servers also keep ordinary technical request logs, which include IP addresses (see “At a glance”).</li><li><strong>No tracking across sites:</strong> we do not follow you to other websites and we build no profile of you.</li><li><strong>Do Not Track is honored:</strong> if your browser sends the Do Not Track signal, your visit is not counted.</li><li><strong>Used only to count visits.</strong> Not for advertising, and never sold.</li></ul>
+<p>Legal basis: our legitimate interest in knowing which pages are useful (KVKK Art. 5/2-f; GDPR Art. 6(1)(f)). Questions or objections: <a href="mailto:support@wybber.com">support@wybber.com</a>.</p>
 <hr>
 <h3 id="related-documents">Related documents</h3>
 <ul><li>KVKK Disclosure Notice — for users in Türkiye (Turkish Law No. 6698, Article 10)</li><li>Explicit Consent Notice — explicit consent for special-category data</li><li>Terms of Service</li><li>Community Guidelines</li><li>Safety and Moderation Policy</li></ul></article>
@@ -247,5 +252,6 @@
   </div>
   <p class="legal-entity">Wybber is operated by Dora AI Labs LLC (Wyoming, USA).</p>
 </footer>
+<script defer src="https://stats.wybber.com/s.js" data-website-id="62435756-fcc3-4ed5-b4a5-664bd0b07bfe" data-do-not-track="true" data-domains="www.wybber.com,wybber.com"></script>
 </body>
 </html>
