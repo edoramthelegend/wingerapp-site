@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-bvY/Gslhz6pJkWfVgkOVJJEd3VNTN7/mVzVSwlg9PUM='; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-J6v7k9M26eEvXiLTAJ1iMUGFcIvBydhHxpOKpPOvhlE='; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
@@ -50,17 +50,19 @@
 <article class="prose">
 <h1>Wybber’a davet edildin</h1>
 <p>Wybber’da senin yerine Wybber’ın konuşur; mesajların, fotoğrafların ve cevapların bizde değil, sende.</p>
-<p>Android’de davet kodunla Link paketini 14 gün ücretsiz deneyebilirsin. iPhone’da kodun seni davet eden kişiye bağlar; sen de standart 7 günlük denemeyle başlarsın.</p>
+<p id="dl-trial">Android’de davet kodunla Link paketini 14 gün ücretsiz deneyebilirsin. iPhone’da kodun seni davet eden kişiye bağlar; sen de standart 7 günlük denemeyle başlarsın.</p>
 <div id="dl-no-code">
 <h2>Davet kodun</h2>
 <p>Kodunu görmek için bu sayfayı davet bağlantından aç. Kod <code>WIN-XXXXXXXX</code> biçimindedir. Kodu bir kenara not et: Wybber’ı kurarken “Davet kodum var”a dokunup kodu gir.</p>
 </div>
 <div id="dl-with-code" hidden>
 <div class="card card-flat dl-card">
-<h2>Davet kodun</h2>
+<h2 id="dl-with-code-title">Davet kodun</h2>
+<p id="dl-friend" hidden>Arkadaşın seni Wybber’a davet etti. Davet kodun:</p>
 <p class="dl-code" id="dl-code"></p>
 <p><button type="button" id="dl-copy" class="btn btn-primary">Kodu kopyala</button></p>
 <p id="dl-copied" hidden>Kopyalandı. Wybber davet kodu istediğinde yapıştır.</p>
+<p id="dl-friend-hint" hidden>Uygulamayı indir, kodu girerken yapıştır.</p>
 </div>
 </div>
 <p>Wybber henüz App Store’da değil. Yayına girince bu bağlantıya yeniden gel ya da bize yaz: <a href="mailto:support@wybber.com">support@wybber.com</a>.</p>
@@ -91,9 +93,11 @@
   <p class="legal-entity">Wybber, Dora AI Labs LLC (Wyoming, ABD) tarafından işletilir.</p>
 </footer>
 <script>(function () {
-  var m = /(?:^|[?&])ref=(WIN-[A-Z0-9]{8})(?:&|$)/.exec(String(location.search));
-  if (!m) { return; }
-  var code = m[1];
+  var q = String(location.search);
+  var m = /(?:^|[?&])ref=(WIN-[A-Z0-9]{8})(?:&|$)/.exec(q);
+  var f = m ? null : /(?:^|[?&])code=([A-Za-z0-9]{4})(?:-|%2[Dd])?([A-Za-z0-9]{4})(?:&|$)/.exec(q);
+  if (!m && !f) { return; }
+  var code = f ? (f[1] + '-' + f[2]).toUpperCase() : m[1];
   var withCode = document.getElementById('dl-with-code');
   var noCode = document.getElementById('dl-no-code');
   var out = document.getElementById('dl-code');
@@ -103,6 +107,16 @@
   out.textContent = code;
   noCode.hidden = true;
   withCode.hidden = false;
+  if (f) {
+    var lead = document.getElementById('dl-friend');
+    var hint = document.getElementById('dl-friend-hint');
+    var trial = document.getElementById('dl-trial');
+    var title = document.getElementById('dl-with-code-title');
+    if (lead) { lead.hidden = false; }
+    if (hint) { hint.hidden = false; }
+    if (trial) { trial.hidden = true; }
+    if (title) { title.hidden = true; }
+  }
   function ok() { if (done) { done.hidden = false; } }
   function fallback() {
     var r = document.createRange();
