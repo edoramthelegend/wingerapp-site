@@ -1771,3 +1771,56 @@ details.where .grid-2 {
     gap: 0.6rem;
   }
 }
+
+/* ------------------------------------------------------------------ S7930 additions */
+
+/* Visible link from the default-locale home to the other language (no script can read the browser language). */
+.lang-banner {
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--blush);
+}
+.lang-banner a {
+  color: var(--rose);
+  text-decoration: none;
+}
+.lang-banner a:hover {
+  text-decoration: underline;
+}
+
+/* No privacy photo for this language (the available image shows an English chat): one column. */
+.privacy-intro-solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.where-note {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+}
+
+.invite-note {
+  margin: 0 0 1rem;
+  font-weight: 700;
+  color: var(--rose);
+}
+
+.notify-band .notify-note {
+  font-size: 0.9rem;
+  opacity: 0.92;
+}
+
+.support-band {
+  text-align: center;
+}
+
+.dl-privacy,
+.dl-gate {
+  color: var(--ink-soft);
+}
+
+.hero-copy .store-badges {
+  margin: 0 0 1rem;
+}

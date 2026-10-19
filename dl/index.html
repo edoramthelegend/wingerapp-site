@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-J6v7k9M26eEvXiLTAJ1iMUGFcIvBydhHxpOKpPOvhlE='; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-80fXcrP+e7JCgVgmgld2sPzRuNUEY53W28XGcQNqgdQ='; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
 <meta name="robots" content="noindex">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light dark">
@@ -22,9 +22,9 @@
 <meta property="og:url" content="https://www.wybber.com/dl">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="tr_TR">
-<meta property="og:image" content="https://www.wybber.com/assets/og-wybber.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:image" content="https://www.wybber.com/assets/og-share.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="600">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/assets/favicon-32.png">
 <link rel="apple-touch-icon" href="/assets/favicon-180.png">
@@ -50,23 +50,25 @@
 
 <article class="prose">
 <h1>You’ve been invited to Wybber</h1>
-<p>Wybber is dating where your Wybber does the talking for you, and your messages, photos and answers stay with you, not with us.</p>
+<p>Wybber is a dating and friendship app where your Wybber does the first talk and you do the chatting; your messages, photos and answers aren’t kept on our servers.</p>
 <p id="dl-trial">On Android, your invite code lets you try Link free for 14 days. On iPhone, your code links you to the person who invited you, and you get the standard 7-day trial.</p>
 <div id="dl-no-code">
 <h2>Your invite code</h2>
-<p>Open this page from your invite link to see your code. A code looks like <code>WIN-XXXXXXXX</code>. Keep it: when you set up Wybber, tap “I have an invite code” and enter it.</p>
+<p>Open this page from your invite link to see your code. Friend and campus ambassador codes look like <code>ABCD-EFGH</code>, creator codes like <code>WIN-XXXXXXXX</code>. Keep it: when you set up Wybber, tap “I have an invite code” and enter it.</p>
 </div>
 <div id="dl-with-code" hidden>
 <div class="card card-flat dl-card">
 <h2 id="dl-with-code-title">Your invite code</h2>
-<p id="dl-friend" hidden>A friend invited you to Wybber. Your invite code:</p>
+<p id="dl-friend" hidden>You’ve been invited to Wybber. Your invite code:</p>
 <p class="dl-code" id="dl-code"></p>
 <p><button type="button" id="dl-copy" class="btn btn-primary">Copy code</button></p>
 <p id="dl-copied" hidden>Copied. Paste it when Wybber asks for an invite code.</p>
-<p id="dl-friend-hint" hidden>Download the app and paste the code when Wybber asks for it.</p>
+<p id="dl-friend-hint" hidden>When Wybber launches, install it and tap “I have an invite code” to enter this code. Note it down; this link keeps your code too.</p>
 </div>
 </div>
-<p>Wybber is not on the App Store yet. Come back to this link when it launches, or write to us at <a href="mailto:support@wybber.com">support@wybber.com</a>.</p>
+<p class="dl-privacy">The person who invited you only sees that a code was used; they never see who used it.</p>
+<p>Wybber is not on the App Store or Google Play yet, so there is no Android version out either. Open this link again when it launches, or write to us at <a href="mailto:support@wybber.com">support@wybber.com</a>.</p>
+<p><a class="text-link" href="/">What is Wybber? Read more on the home page.</a></p>
 </article>
 </main>
 <footer class="site-footer">
@@ -78,7 +80,7 @@
     </div>
     <div class="footer-col">
       <h2>Wybber</h2>
-      <ul><li><a href="/#how">How it works</a></li><li><a href="/#plans">Plans</a></li><li><a href="/#travel">Travel Mode</a></li><li><a href="/safety-center">Safety Center</a></li><li><a href="/influenceprogram">Creator Program</a></li></ul>
+      <ul><li><a href="/#how">How it works</a></li><li><a href="/#plans">Plans</a></li><li><a href="/#travel">Travel Mode</a></li><li><a href="/safety-center">Safety Center</a></li><li><a href="/campus">Campus Ambassador</a></li></ul>
     </div>
     <div class="footer-col">
       <h2>Help</h2>
@@ -117,6 +119,14 @@
     if (hint) { hint.hidden = false; }
     if (trial) { trial.hidden = true; }
     if (title) { title.hidden = true; }
+  }
+  // [S7930] The language switch keeps the code: the validated ref=/code= pair (letters, digits, dash only) is appended to
+  // each language link, so switching English <-> Turkish does not drop the invite. No network, no storage.
+  var keep = f ? '?code=' + code : '?ref=' + code;
+  var links = document.querySelectorAll ? document.querySelectorAll('.lang-switch a') : [];
+  for (var i = 0; i < links.length; i++) {
+    var h = links[i].getAttribute('href');
+    if (h && h.indexOf('?') < 0) { links[i].setAttribute('href', h + keep); }
   }
   function ok() { if (done) { done.hidden = false; } }
   function fallback() {
