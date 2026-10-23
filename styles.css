@@ -1774,23 +1774,6 @@ details.where .grid-2 {
 
 /* ------------------------------------------------------------------ S7930 additions */
 
-/* Visible link from the default-locale home to the other language (no script can read the browser language). */
-.lang-banner {
-  margin: 0;
-  padding: 0.5rem 1.25rem;
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 700;
-  background: var(--blush);
-}
-.lang-banner a {
-  color: var(--rose);
-  text-decoration: none;
-}
-.lang-banner a:hover {
-  text-decoration: underline;
-}
-
 /* No privacy photo for this language (the available image shows an English chat): one column. */
 .privacy-intro-solo {
   grid-template-columns: minmax(0, 1fr);
@@ -2034,4 +2017,110 @@ details.where .grid-2 {
 
 .elci-success p + p {
   margin-top: 0.75rem;
+}
+
+/* ------------------------------------------------------------------ S9080-S9100 (site copy + growth reviews, 2026-10-22) */
+
+/* S9085: FAQ answers fold (<details>, no script). The question row is a 44 px tap target with its own +/- mark. */
+.faq .faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  list-style: none;
+}
+.faq .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq .faq-item summary::after {
+  content: '+';
+  flex: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--rose);
+}
+.faq .faq-item[open] summary::after {
+  content: '\2212';
+}
+.faq-a p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-soft);
+}
+
+/* S9084: the notify button on the gradient band (white, so the label keeps its contrast). */
+.world-cta {
+  margin: 1.25rem 0 0;
+}
+.world-band .world-cta .btn-primary {
+  background: #fff;
+  color: #7b3bb4;
+  border-color: #fff;
+}
+
+/* S9083: "Why Wybber?" -- five cards in the three-column grid. */
+.pillars {
+  margin-top: 1.5rem;
+}
+
+.privacy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+/* S9100: "Where does your data go?" three columns. */
+.data-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+.data-col h2 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 1.2rem;
+}
+.data-col .data-col-lead {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+.data-col .tick-list {
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .data-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* S9080: on a phone the category line and the button belong on the first screen (measured at 375 x 667 in headless Chrome). */
+@media (max-width: 720px) {
+  .hero {
+    padding-top: 1.25rem;
+  }
+  .eyebrow {
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+  }
+  .hero h1 {
+    margin-bottom: 0.75rem;
+  }
+  .privacy-line {
+    margin-bottom: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .privacy-line > div > p {
+    font-size: 0.92rem;
+    line-height: 1.45;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    margin-bottom: 0.9rem;
+  }
+  .hero .cta-row {
+    margin-bottom: 1rem;
+  }
 }
