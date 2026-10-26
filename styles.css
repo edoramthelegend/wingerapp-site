@@ -2124,3 +2124,690 @@ details.where .grid-2 {
     margin-bottom: 1rem;
   }
 }
+
+/* ------------------------------------------------------------------ S10780 home refresh (marketing review 2026-10-26) */
+/* One headline, one short description, one dominant action (the waitlist form), a secondary link, a short boundary line. */
+
+.hero h1 {
+  font-size: clamp(2.1rem, 6.6vw, 3.45rem);
+  line-height: 1.08;
+}
+
+.hero-desc {
+  font-size: clamp(1.05rem, 2.4vw, 1.18rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem;
+  max-width: 33em;
+}
+
+.hero-how {
+  margin: 0.9rem 0 0.4rem;
+}
+
+.hero-bound {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* waitlist form (lib/waitlist.mjs) */
+.wl {
+  max-width: 34rem;
+}
+
+.wl [hidden] {
+  display: none !important;
+}
+
+.wl-fallback {
+  margin: 0;
+}
+
+.wl-row {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.wl-row:focus-within {
+  border-color: var(--rose);
+}
+
+.wl-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0 1rem;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+}
+
+.wl-row input:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 2px;
+}
+
+.wl-row input::placeholder {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.wl-row .btn {
+  flex: none;
+  min-height: 48px;
+  white-space: nowrap;
+}
+
+.wl-row .btn[aria-disabled="true"] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.wl .field-error {
+  margin: 0.5rem 0 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--rose);
+}
+
+.wl .form-alert p {
+  margin: 0;
+}
+
+.wl .form-alert {
+  margin-top: 0.6rem;
+}
+
+.wl-note {
+  margin: 0.55rem 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.wl-note a {
+  color: var(--muted);
+}
+
+.wl-success {
+  padding: 0.95rem 1.2rem;
+  border-radius: var(--radius);
+  background: var(--sage-bg);
+  color: var(--sage-ink);
+}
+
+.wl-success p {
+  margin: 0;
+}
+
+.wl-success:focus {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+.wl-success strong {
+  color: inherit;
+}
+
+.notify-band .wl {
+  margin: 1.25rem auto 1.5rem;
+  text-align: left;
+}
+
+.notify-band .wl-row {
+  border-color: transparent;
+}
+
+.notify-band .wl-note,
+.notify-band .wl-note a,
+.notify-band .wl .field-error {
+  color: inherit;
+}
+
+.notify-band .store-badges {
+  justify-content: center;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.notify-band .store-soon,
+.notify-band .store-note {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.notify-band .store-note {
+  margin: 0 auto;
+}
+
+/* hero visual: one illustration + the representative match screen */
+.show-stage {
+  position: relative;
+  width: 100%;
+  max-width: 470px;
+  margin: 0 auto;
+  min-height: 520px;
+}
+
+.show-stage .portrait-a {
+  left: 0;
+  top: 0;
+  width: 58%;
+  transform: rotate(-3deg);
+}
+
+.show-phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 66%;
+  max-width: 300px;
+  padding: 0.9rem 0.95rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: var(--shadow-lg);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.sp-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 800;
+  margin-bottom: 0.55rem;
+}
+
+.sp-pill {
+  margin-left: auto;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--violet);
+  background: var(--lilac);
+  border-radius: 999px;
+}
+
+.sp-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.sp-person {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sp-person strong,
+.sp-person small {
+  display: block;
+}
+
+.sp-person small {
+  color: var(--muted);
+}
+
+.sp-locked {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px dashed var(--line);
+}
+
+.sp-locked .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.sp-fit {
+  margin-left: auto;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--sage-ink);
+  background: var(--sage-bg);
+  border-radius: 999px;
+}
+
+.sp-note {
+  margin: 0.45rem 0 0.7rem;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.sp-label {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sp-chips {
+  list-style: none;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.sp-chips li {
+  padding: 0.3rem 0.6rem;
+  background: var(--blush);
+  border-radius: 10px;
+}
+
+.sp-own {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+}
+
+.sp-own img {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sp-send {
+  display: block;
+  margin-top: 0.65rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: 800;
+  color: var(--on-rose);
+  background: var(--rose);
+  border-radius: 999px;
+}
+
+.hero-visual figcaption {
+  margin-top: 0.9rem;
+  text-align: center;
+}
+
+/* "Who sees what?" */
+.who-steps {
+  counter-reset: who;
+}
+
+.control-note .text-link {
+  margin-left: 0.25rem;
+}
+
+/* steps: two sentences + a fold */
+.step-more {
+  margin-top: 0.4rem;
+}
+
+.step-more summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  color: var(--link);
+  cursor: pointer;
+}
+
+.step-more p {
+  margin: 0.25rem 0 0;
+}
+
+.exchange {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1.25rem 1rem;
+  aspect-ratio: 4 / 3;
+  background: var(--lilac);
+}
+
+.ex-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--violet);
+}
+
+.ex-phone .icon {
+  width: 52px;
+  height: 52px;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.ex-link {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.ex-chip {
+  padding: 0.25rem 0.6rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: var(--on-rose);
+  background: var(--rose);
+  border-radius: 999px;
+}
+
+.ex-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-top: 2px dashed var(--violet);
+  height: 0;
+  margin: 0.6rem 0;
+}
+
+.ex-line .icon {
+  width: 22px;
+  height: 22px;
+  padding: 3px;
+  margin-top: -1px;
+  color: var(--violet);
+  background: var(--lilac);
+}
+
+.first-msg {
+  position: relative;
+}
+
+.fm-bubble {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.9rem;
+  padding: 0.45rem 0.8rem;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--on-rose);
+  background: var(--rose);
+  border-radius: 16px 16px 16px 4px;
+  box-shadow: var(--shadow);
+}
+
+/* privacy band: short data map */
+.pmap {
+  margin-top: 0.5rem;
+}
+
+.pmap-col h3 {
+  margin-top: 0.75rem;
+}
+
+.pmap-col .tick-list {
+  margin: 0;
+}
+
+.conn-line {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin: 1.75rem 0 1.25rem;
+  padding: 1rem 1.2rem;
+  max-width: 52rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+
+.conn-line .icon {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  color: var(--sage);
+}
+
+.privacy-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+/* plans: summary cards + the comparison table */
+.plan-compare {
+  margin: 1.25rem 0 0;
+}
+
+.plan-compare summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 800;
+  color: var(--link);
+  cursor: pointer;
+}
+
+.plan-compare .table-wrap {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.plan-compare table {
+  min-width: 560px;
+  font-size: 0.92rem;
+}
+
+.plan-compare th[scope="row"] {
+  text-align: left;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.plan-compare thead th {
+  text-align: left;
+}
+
+.plan-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.plan-facts .safety-free {
+  margin: 0;
+}
+
+.plan-soon strong {
+  color: var(--violet);
+}
+
+/* FAQ: six on the home, the rest grouped on Support */
+.faq-more {
+  margin: 1.25rem 0 0.5rem;
+}
+
+.faq-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+}
+
+.faq-topics a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.faq-group {
+  margin-bottom: 2rem;
+}
+
+.faq-group h3 {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .plan-facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .show-stage {
+    min-height: 0;
+    max-width: 400px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .show-stage .portrait-a {
+    position: relative;
+    width: 52%;
+    margin-left: 4%;
+  }
+  .show-phone {
+    position: relative;
+    width: 84%;
+    max-width: none;
+    margin: -38% 0 0 auto;
+  }
+  .wl-row {
+    flex-direction: column;
+    border-radius: 22px;
+  }
+  .wl-row .btn {
+    width: 100%;
+  }
+}
+
+/* S10780 polish */
+.notify-band .wl-row .btn-primary {
+  background: var(--rose);
+  color: var(--on-rose);
+}
+
+.notify-band .wl-row .btn-primary:hover {
+  background: var(--rose-hover);
+  color: var(--on-rose);
+}
+
+.exchange .ex-phone {
+  font-size: 0.9rem;
+}
+
+.exchange .ex-phone .icon {
+  width: 64px;
+  height: 64px;
+  padding: 13px;
+}
+
+.exchange .ex-chip {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.8rem;
+}
+
+.exchange .ex-link small {
+  font-size: 0.8rem;
+}
+
+@media (max-width: 560px) {
+  .plans {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+  .plans .plan {
+    padding: 1.1rem 0.9rem 1.2rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* S10780 (marketing review): "You" tag on the hero portrait (the avatar in the sample screen is the same person), the free-trial
+   badge on the Link card, the sample screen's no-score line and the "Tell a friend" button. */
+.portrait-tag {
+  position: absolute;
+  left: 0.6rem;
+  top: 0.6rem;
+  z-index: 2;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--on-rose);
+  background: var(--rose);
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan .tick-list {
+  margin-top: 0.25rem; /* the tag's 0.5rem + this = the old collapsed 0.75rem */
+}
+
+.plan-badge-row {
+  margin: auto 0 0;
+  padding-top: 1rem;
+}
+
+.plan-badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--sage-ink);
+  background: var(--sage-bg);
+  border: 1px solid var(--sage);
+  border-radius: 999px;
+}
+
+.sp-foot {
+  margin: 0.5rem 0 0;
+  font-size: 0.72rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.wl-share {
+  margin-top: 0.75rem;
+}
