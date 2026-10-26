@@ -550,7 +550,7 @@ thead th {
 
 .hero {
   background: var(--hero-wash);
-  padding: 3.5rem 0 2.5rem;
+  padding: 2.5rem 0 2.5rem;
 }
 
 .hero-grid {
@@ -2294,20 +2294,31 @@ details.where .grid-2 {
   width: 100%;
   max-width: 470px;
   margin: 0 auto;
-  min-height: 520px;
+  /* S11340: the stage takes its height from the phone (one grid cell, both layers in it). The phone used to be
+     pinned to the bottom of a fixed 520 px box; once the advice lines grew it overflowed the top and slid under the
+     site header. */
+  display: grid;
+}
+
+.show-stage > .portrait,
+.show-stage > .show-phone {
+  grid-area: 1 / 1;
 }
 
 .show-stage .portrait-a {
-  left: 0;
-  top: 0;
+  position: relative;
+  align-self: start;
+  justify-self: start;
   width: 58%;
   transform: rotate(-3deg);
 }
 
 .show-phone {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  justify-self: end;
+  margin-top: 3.25rem;
   width: 66%;
   max-width: 300px;
   padding: 0.9rem 0.95rem 1rem;
@@ -2710,6 +2721,10 @@ details.where .grid-2 {
     display: grid;
     grid-template-columns: 1fr;
   }
+  .show-stage > .portrait,
+  .show-stage > .show-phone {
+    grid-area: auto;
+  }
   .show-stage .portrait-a {
     position: relative;
     width: 52%;
@@ -2824,6 +2839,45 @@ details.where .grid-2 {
   font-size: 0.72rem;
   text-align: center;
   color: var(--muted);
+}
+
+/* S11340: the sample screen fits a laptop screen (1280 x 720 and up: card fully visible under the header).
+   Wider card = fewer wrapped advice lines; tighter rhythm inside. */
+.show-phone {
+  width: 70%;
+  max-width: 320px;
+  padding: 0.8rem 0.85rem 0.85rem;
+}
+.sp-bar { margin-bottom: 0.4rem; }
+.sp-title { margin-bottom: 0.45rem; font-size: 1rem; }
+.sp-locked { width: 36px; height: 36px; }
+.sp-note { margin: 0.35rem 0 0.5rem; font-size: 0.72rem; }
+.sp-label { margin-bottom: 0.3rem; }
+.sp-advice { margin-bottom: 0.55rem; padding: 0.45rem 0.6rem; font-size: 0.76rem; line-height: 1.35; }
+.sp-advice-lines { margin: 0.3rem 0; gap: 0.22rem; }
+.sp-advice-lines li { padding: 0.22rem 0.5rem; }
+.sp-own { gap: 0.5rem; padding-top: 0.5rem; font-size: 0.78rem; }
+.sp-own img { width: 32px; height: 32px; }
+.sp-send { margin-top: 0.5rem; padding: 0.4rem; font-size: 0.82rem; }
+.sp-foot { margin-top: 0.35rem; font-size: 0.7rem; }
+
+/* short laptop screens: the two explanatory one-liners give way so the whole card stays on screen */
+@media (min-width: 721px) and (max-height: 760px) {
+  .hero { padding-top: 1.5rem; }
+  .show-phone { margin-top: 2rem; }
+  .sp-note,
+  .sp-foot { display: none; }
+}
+
+/* very short browser windows (a laptop with toolbars, ~1000 x 500): the whole sample shrinks in proportion; `zoom`
+   (unlike transform) also shrinks the space it takes, so nothing below moves under it */
+@media (min-width: 721px) and (max-height: 660px) {
+  .hero { padding-top: 1rem; }
+  .show-stage { zoom: 0.86; }
+  .show-phone { margin-top: 1.5rem; }
+}
+@media (min-width: 721px) and (max-height: 560px) {
+  .show-stage { zoom: 0.74; }
 }
 
 .wl-share {
