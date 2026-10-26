@@ -2414,6 +2414,15 @@ details.where .grid-2 {
   border-radius: 10px;
 }
 
+.sp-suggest {
+  margin: 0 0 0.75rem;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+  background: var(--surface, #fff);
+  border: 1px solid var(--line);
+  border-radius: 12px 12px 12px 4px;
+}
+
 .sp-own {
   display: flex;
   align-items: center;
