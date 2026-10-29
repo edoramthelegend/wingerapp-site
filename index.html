@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-yQKQB3vWESPw9Gw9LeuCTahUl2DpJe+bpF7/XzOgVOk=' https://stats.wybber.com; connect-src https://api.wybber.com https://stats.wybber.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-GsG++zxOe005zAfmwp4RwvpHZgMTJrATnGda52ZfSho=' https://stats.wybber.com; connect-src https://api.wybber.com https://stats.wybber.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1A1417" media="(prefers-color-scheme: dark)">
@@ -65,6 +65,7 @@
 <button type="submit" class="btn btn-primary" data-sending="Sending…" data-umami-event="notify_submit" data-umami-event-placement="hero">Notify me at launch</button>
 </div>
 <p class="field-error" id="wl-hero-error" hidden>Enter a valid email address.</p>
+<p class="field-error" id="wl-hero-chars" data-chars hidden>This address has a character we can’t accept. Latin letters, numbers and common symbols are fine; if you pasted it from somewhere else, try typing it by hand.</p>
 <div class="hp" aria-hidden="true">
 <label for="wl-hero-website">Leave this field empty</label>
 <input id="wl-hero-website" name="website" type="text" tabindex="-1" autocomplete="off" maxlength="200">
@@ -329,6 +330,7 @@
 <button type="submit" class="btn btn-primary" data-sending="Sending…" data-umami-event="notify_submit" data-umami-event-placement="band">Notify me at launch</button>
 </div>
 <p class="field-error" id="wl-band-error" hidden>Enter a valid email address.</p>
+<p class="field-error" id="wl-band-chars" data-chars hidden>This address has a character we can’t accept. Latin letters, numbers and common symbols are fine; if you pasted it from somewhere else, try typing it by hand.</p>
 <div class="hp" aria-hidden="true">
 <label for="wl-band-website">Leave this field empty</label>
 <input id="wl-band-website" name="website" type="text" tabindex="-1" autocomplete="off" maxlength="200">
@@ -377,17 +379,96 @@
   </div>
   <p class="legal-entity">Wybber is operated by Dora AI Labs LLC (Wyoming, USA).</p>
 </footer>
-<script>(function waitlistForm(cfg, doc) {
+<script>(function () { var textRules = function textRules(A) {
   'use strict';
-  var CONTROL = /[\u0000-\u001f\u007f-\u009f\u2028\u2029\u061c\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]/;
+  function rangeTest(ranges) {
+    return function (c) {
+      var lo = 0;
+      var hi = ranges.length - 1;
+      while (lo <= hi) {
+        var mid = (lo + hi) >> 1;
+        if (c < ranges[mid][0]) hi = mid - 1;
+        else if (c > ranges[mid][1]) lo = mid + 1;
+        else return true;
+      }
+      return false;
+    };
+  }
+  var inSingle = rangeTest(A.single);
+  var inEmoji = rangeTest(A.emoji_base);
+  function emojiEnd(cps, i) {
+    var j = i + 1;
+    if (j < cps.length && cps[j] === A.emoji_vs16) j += 1;
+    if (j < cps.length && cps[j] >= A.emoji_modifier[0] && cps[j] <= A.emoji_modifier[1]) j += 1;
+    return j;
+  }
+  // [] = clean; 'text_character_not_allowed' and / or 'text_multiline' otherwise (the server's two codes)
+  function problems(txt) {
+    var nfc = txt.normalize(A.normalization);
+    var cps = Array.from(nfc).map(function (ch) { return ch.codePointAt(0); });
+    var badChar = Boolean(A.input_must_be_normalized) && nfc !== txt;
+    var multiline = false;
+    var n = cps.length;
+    var i = 0;
+    while (i < n) {
+      var c = cps[i];
+      if (A.multiline.indexOf(c) >= 0) { multiline = true; i += 1; continue; }
+      if (A.keycap_bases.indexOf(c) >= 0) {
+        var k = i + 1 + (i + 1 < n && cps[i + 1] === A.emoji_vs16 ? 1 : 0);
+        if (k < n && cps[k] === A.keycap_mark) { i = k + 1; continue; }
+      }
+      if (inEmoji(c)) {
+        var j = emojiEnd(cps, i);
+        while (j + 1 < n && cps[j] === A.emoji_zwj && inEmoji(cps[j + 1])) j = emojiEnd(cps, j + 1);
+        i = j;
+        continue;
+      }
+      if (c >= A.regional_indicator[0] && c <= A.regional_indicator[1]) {
+        if (i + 1 < n && cps[i + 1] >= A.regional_indicator[0] && cps[i + 1] <= A.regional_indicator[1]) { i += 2; continue; }
+        badChar = true;
+        i += 1;
+        continue;
+      }
+      if (!inSingle(c)) badChar = true;
+      i += 1;
+    }
+    var out = [];
+    if (badChar) out.push('text_character_not_allowed');
+    if (multiline) out.push('text_multiline');
+    return out;
+  }
+
+  // backend _email_local_ok
+  function localOk(local) {
+    if (problems(local).length) return false;
+    return Array.from(local).every(function (ch) {
+      var c = ch.codePointAt(0);
+      return (c >= 0x21 && c <= 0x7e) || (c >= 0xc0 && c <= 0x17f && c !== 0xd7 && c !== 0xf7);
+    });
+  }
+  function isCharsMsg(msg) {
+    return /\btext_(character_not_allowed|multiline)\b/.test(String(msg));
+  }
+  return { problems: problems, localOk: localOk, isCharsMsg: isCharsMsg };
+};
+(function waitlistForm(cfg, doc) {
+  'use strict';
+  // [S12842] the server's e-mail rule (backend clean_email + text allow list): format regex here, characters from the ONE shared
+  // implementation lib/textrules.mjs `textRules` (inlined ahead of this function in the shipped script, imported for Node).
+  var rules = textRules(cfg.allow);
   var EMAIL_RE = /^[^@\s<>"',;()\[\]\\]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,62}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,62}[A-Za-z0-9])?)+$/u;
+  // the server NFC-folds a waitlist address before judging it (a composed and a decomposed spelling are one address)
+  var why = '';
   function email(v) {
-    v = String(v === null || v === void 0 ? '' : v).trim();
-    return Array.from(v).length <= cfg.emailMax && !CONTROL.test(v) && EMAIL_RE.test(v) ? v : false;
+    why = '';
+    v = String(v === null || v === void 0 ? '' : v).normalize('NFC').trim();
+    if (Array.from(v).length > cfg.emailMax || !EMAIL_RE.test(v)) return false;
+    if (!rules.localOk(v.slice(0, v.lastIndexOf('@')))) { why = 'chars'; return false; }
+    return v;
   }
   function check(v) {
     var e = email(v.email);
-    return { ok: e !== false, body: { email: e, locale: String(v.locale || ''), source: String(v.source || ''), website: String(v.website || '') } };
+    return { ok: e !== false, reason: why, body: { email: e, locale: String(v.locale || ''), source: String(v.source || ''), website: String(v.website || '') } };
   }
   if (!doc) return { check: check };
   if (!window.fetch) return;
@@ -398,6 +479,7 @@
     var hp = form ? form.elements.namedItem('website') : null;
     var submit = form ? form.querySelector('button[type="submit"]') : null;
     var err = root.querySelector('.field-error');
+    var errChars = root.querySelector('[data-chars]');
     var alertBox = root.querySelector('[role="alert"]');
     var success = root.querySelector('.wl-success');
     var fallback = root.querySelector('.wl-fallback');
@@ -431,12 +513,15 @@
     var busy = false;
     var shown = false;
 
-    function mark(on) {
+    // `reason` 'chars' = the address failed only on a character the server refuses: its own friendlier line
+    function mark(on, reason) {
       shown = on;
-      err.hidden = !on;
+      var cur = on && reason === 'chars' && errChars ? errChars : err;
+      err.hidden = !(on && cur === err);
+      if (errChars) errChars.hidden = !(on && cur === errChars);
       if (on) {
         input.setAttribute('aria-invalid', 'true');
-        input.setAttribute('aria-describedby', (hint + ' ' + err.id).trim());
+        input.setAttribute('aria-describedby', (hint + ' ' + cur.id).trim());
       } else {
         input.removeAttribute('aria-invalid');
         if (hint) input.setAttribute('aria-describedby', hint); else input.removeAttribute('aria-describedby');
@@ -486,13 +571,22 @@
           return;
         }
         if (res.status === 429) return say('rate');
-        if (res.status === 422) { mark(true); input.focus(); return; }
+        if (res.status === 422) {
+          // the server's two stable text codes -> the "unusable character" line; anything else -> the plain "valid address" line
+          return res.json().then(function (j) {
+            var list = j && j.detail && j.detail.length ? j.detail : [];
+            mark(true, list.some(function (e) { return rules.isCharsMsg(e && e.msg); }) ? 'chars' : '');
+            input.focus();
+          }, function () { mark(true); input.focus(); });
+        }
         say('failed');
       }, function () { done(); say('failed'); });
     }
 
     input.addEventListener('input', function () {
-      if (shown && email(input.value) !== false) mark(false);
+      if (!shown) return;
+      var r = check({ email: input.value });
+      if (r.ok) mark(false); else mark(true, r.reason);
     });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -504,7 +598,7 @@
         source: form.getAttribute('data-source') || '',
       });
       if (!res.ok) {
-        mark(true);
+        mark(true, res.reason);
         say(null);
         input.focus();
         return;
@@ -514,7 +608,7 @@
     });
   }
   Array.prototype.forEach.call(doc.querySelectorAll('[data-wl]'), setup);
-})({"url":"https://api.wybber.com/waitlist","emailMax":254}, document);</script>
+})({"url":"https://api.wybber.com/waitlist","emailMax":254,"allow":{"normalization":"NFC","input_must_be_normalized":true,"multiline":[9,10],"single":[[32,126],[161,161],[163,163],[169,171],[174,174],[176,176],[183,183],[186,187],[191,214],[216,246],[248,383],[8211,8212],[8216,8218],[8220,8222],[8226,8226],[8230,8230],[8249,8250],[8364,8364],[8378,8378],[8482,8482]],"emoji_base":[[169,169],[174,174],[8252,8252],[8265,8265],[8482,8482],[8505,8505],[8596,8601],[8617,8618],[8986,8987],[9000,9000],[9096,9096],[9167,9167],[9193,9203],[9208,9210],[9410,9410],[9642,9643],[9654,9654],[9664,9664],[9723,9726],[9728,9733],[9735,9746],[9748,9861],[9872,9989],[9992,10002],[10004,10004],[10006,10006],[10013,10013],[10017,10017],[10024,10024],[10035,10036],[10052,10052],[10055,10055],[10060,10060],[10062,10062],[10067,10069],[10071,10071],[10083,10087],[10133,10135],[10145,10145],[10160,10160],[10175,10175],[10548,10549],[11013,11015],[11035,11036],[11088,11088],[11093,11093],[12336,12336],[12349,12349],[12951,12951],[12953,12953],[126976,127019],[127024,127123],[127136,127150],[127153,127167],[127169,127183],[127185,127221],[127245,127247],[127279,127279],[127340,127345],[127358,127359],[127374,127374],[127377,127386],[127405,127405],[127489,127490],[127514,127514],[127535,127535],[127538,127546],[127568,127569],[127584,127589],[127744,127994],[128000,128317],[128326,128591],[128640,128727],[128732,128748],[128752,128764],[128884,128886],[128891,128895],[128981,128985],[128992,129003],[129008,129008],[129200,129211],[129216,129217],[129292,129338],[129340,129349],[129351,129619],[129632,129645],[129648,129660],[129664,129673],[129679,129734],[129742,129756],[129759,129769],[129776,129784]],"emoji_vs16":65039,"emoji_modifier":[127995,127999],"emoji_zwj":8205,"regional_indicator":[127462,127487],"keycap_bases":[35,42,48,49,50,51,52,53,54,55,56,57],"keycap_mark":8419}}, document); })();</script>
 <script defer src="https://stats.wybber.com/s.js" data-website-id="62435756-fcc3-4ed5-b4a5-664bd0b07bfe" data-do-not-track="true" data-domains="www.wybber.com,wybber.com"></script>
 </body>
 </html>

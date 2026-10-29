@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-6VOxKfz0vd941DEYVQAwGF5CK7tKuUM3jV8QI+xhEQw=' https://stats.wybber.com; connect-src https://api.wybber.com https://stats.wybber.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; script-src 'sha256-T/HhTnrEc0kygpCt4//AgnD12TE7BMh3PZTMHxQncD0=' https://stats.wybber.com; connect-src https://api.wybber.com https://stats.wybber.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; object-src 'none'">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FBF8F9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1A1417" media="(prefers-color-scheme: dark)">
@@ -91,30 +91,35 @@
 <label for="elci-name">Adın ve soyadın</label>
 <input id="elci-name" name="name" type="text" autocomplete="name" maxlength="100" required>
 <p class="field-error" id="elci-name-error" hidden>Adını ve soyadını yaz.</p>
+<p class="field-error" id="elci-name-chars" hidden>Bu alanda kullanılamayan bir karakter var. Latin harfleri, rakamlar ve yaygın noktalama işaretleri yeter.</p>
 </div>
 <div class="field">
 <label for="elci-email">E-posta adresin</label>
 <p class="field-hint" id="elci-email-hint">Cevabımızı bu adrese yazarız.</p>
 <input id="elci-email" name="email" type="email" autocomplete="email" maxlength="254" inputmode="email" spellcheck="false" required data-hint="elci-email-hint" aria-describedby="elci-email-hint">
 <p class="field-error" id="elci-email-error" hidden>Geçerli bir e-posta adresi yaz.</p>
+<p class="field-error" id="elci-email-chars" hidden>Bu alanda kullanılamayan bir karakter var. Latin harfleri, rakamlar ve yaygın noktalama işaretleri yeter.</p>
 </div>
 <div class="field">
 <label for="elci-university">Üniversiten</label>
 <p class="field-hint" id="elci-university-hint">Öğrenciysen zorunlu. Öğrenci değilsen boş bırakabilirsin.</p>
 <input id="elci-university" name="university" type="text" autocomplete="organization" maxlength="150" data-hint="elci-university-hint" aria-describedby="elci-university-hint">
 <p class="field-error" id="elci-university-error" hidden>Öğrenciysen üniversiteni yaz.</p>
+<p class="field-error" id="elci-university-chars" hidden>Bu alanda kullanılamayan bir karakter var. Latin harfleri, rakamlar ve yaygın noktalama işaretleri yeter.</p>
 </div>
 <div class="field">
 <label for="elci-social">Sosyal medya profilin</label>
 <p class="field-hint" id="elci-social-hint">İçerik üreticisiysen zorunlu. Bağlantı ya da kullanıcı adı yaz: instagram.com/kullaniciadi ya da @kullaniciadi. Birden fazla hesabın varsa en önemlisini yaz.</p>
 <input id="elci-social" name="social" type="text" inputmode="url" autocapitalize="none" spellcheck="false" maxlength="200" data-hint="elci-social-hint" aria-describedby="elci-social-hint">
 <p class="field-error" id="elci-social-error" hidden>Bağlantı ya da @kullaniciadi yaz, boşluk olmadan.</p>
+<p class="field-error" id="elci-social-chars" hidden>Bu alanda kullanılamayan bir karakter var. Latin harfleri, rakamlar ve yaygın noktalama işaretleri yeter.</p>
 </div>
 <div class="field">
 <label for="elci-message">Kısa mesajın <span class="field-optional">(isteğe bağlı)</span></label>
 <p class="field-hint" id="elci-message-hint">İpucu: Wybber’ı kampüsünde, takipçilerine ya da topluluğuna nasıl tanıtırdın? Birkaç cümle yeter. Kimlik numarası, adres ya da banka bilgisi yazma.</p>
 <textarea id="elci-message" name="message" rows="5" maxlength="1000" data-hint="elci-message-hint" aria-describedby="elci-message-hint"></textarea>
 <p class="field-error" id="elci-message-error" hidden>Mesajın çok uzun ya da kabul edemediğimiz bir karakter içeriyor.</p>
+<p class="field-error" id="elci-message-chars" hidden>Bu alanda kullanılamayan bir karakter var. Latin harfleri, rakamlar ve yaygın noktalama işaretleri yeter.</p>
 </div>
 <div class="field field-check">
 <label class="choice" for="elci-adult"><input type="checkbox" id="elci-adult" name="adult" value="true" required><span>18 yaşını doldurdum.</span></label>
@@ -132,6 +137,7 @@
 <p class="elci-notice">Başvurunu Dora AI Labs LLC olarak yalnızca değerlendirmek ve seninle bir elçi sözleşmesi yapıp yapmayacağımıza karar vermek için kullanırız. Hukuki sebebi, sözleşme kurulmasıdır (KVKK m.5/2-c). Kimlere aktarıldığını, ne kadar saklandığını ve haklarını <a href="/tr/privacy-policy/#13-7-sitedeki-elci-basvuru-formu-wybber-elcileri">Gizlilik Politikası’nın 13. bölümünde</a> anlatıyoruz.</p>
 </form>
 <p hidden data-msg="invalid">Birkaç alana bir bakar mısın? İşaretli olanları düzelt.</p>
+<p hidden data-msg="chars">Bazı alanlarda kullanılamayan bir karakter var. İşaretli alanlarda Latin harfleri, rakamlar ve yaygın noktalama işaretleri kullan; metni başka bir yerden yapıştırdıysan elle yazmayı dene.</p>
 <p hidden data-msg="rate">Kısa sürede çok fazla deneme oldu. Biraz sonra tekrar dene.</p>
 <p hidden data-msg="failed">Şu an gönderemedik. Biraz sonra tekrar dene ya da başvurunu <a href="mailto:support@wybber.com?subject=El%C3%A7i%20ba%C5%9Fvurusu">support@wybber.com</a> adresine yaz.</p>
 <div class="card card-flat elci-success" id="elci-success" tabindex="-1" hidden>
@@ -166,12 +172,94 @@
   </div>
   <p class="legal-entity">Wybber, Dora AI Labs LLC (Wyoming, ABD) tarafından işletilir.</p>
 </footer>
-<script>(function partnerForm(cfg, doc) {
+<script>(function () { var textRules = function textRules(A) {
+  'use strict';
+  function rangeTest(ranges) {
+    return function (c) {
+      var lo = 0;
+      var hi = ranges.length - 1;
+      while (lo <= hi) {
+        var mid = (lo + hi) >> 1;
+        if (c < ranges[mid][0]) hi = mid - 1;
+        else if (c > ranges[mid][1]) lo = mid + 1;
+        else return true;
+      }
+      return false;
+    };
+  }
+  var inSingle = rangeTest(A.single);
+  var inEmoji = rangeTest(A.emoji_base);
+  function emojiEnd(cps, i) {
+    var j = i + 1;
+    if (j < cps.length && cps[j] === A.emoji_vs16) j += 1;
+    if (j < cps.length && cps[j] >= A.emoji_modifier[0] && cps[j] <= A.emoji_modifier[1]) j += 1;
+    return j;
+  }
+  // [] = clean; 'text_character_not_allowed' and / or 'text_multiline' otherwise (the server's two codes)
+  function problems(txt) {
+    var nfc = txt.normalize(A.normalization);
+    var cps = Array.from(nfc).map(function (ch) { return ch.codePointAt(0); });
+    var badChar = Boolean(A.input_must_be_normalized) && nfc !== txt;
+    var multiline = false;
+    var n = cps.length;
+    var i = 0;
+    while (i < n) {
+      var c = cps[i];
+      if (A.multiline.indexOf(c) >= 0) { multiline = true; i += 1; continue; }
+      if (A.keycap_bases.indexOf(c) >= 0) {
+        var k = i + 1 + (i + 1 < n && cps[i + 1] === A.emoji_vs16 ? 1 : 0);
+        if (k < n && cps[k] === A.keycap_mark) { i = k + 1; continue; }
+      }
+      if (inEmoji(c)) {
+        var j = emojiEnd(cps, i);
+        while (j + 1 < n && cps[j] === A.emoji_zwj && inEmoji(cps[j + 1])) j = emojiEnd(cps, j + 1);
+        i = j;
+        continue;
+      }
+      if (c >= A.regional_indicator[0] && c <= A.regional_indicator[1]) {
+        if (i + 1 < n && cps[i + 1] >= A.regional_indicator[0] && cps[i + 1] <= A.regional_indicator[1]) { i += 2; continue; }
+        badChar = true;
+        i += 1;
+        continue;
+      }
+      if (!inSingle(c)) badChar = true;
+      i += 1;
+    }
+    var out = [];
+    if (badChar) out.push('text_character_not_allowed');
+    if (multiline) out.push('text_multiline');
+    return out;
+  }
+
+  // backend _email_local_ok
+  function localOk(local) {
+    if (problems(local).length) return false;
+    return Array.from(local).every(function (ch) {
+      var c = ch.codePointAt(0);
+      return (c >= 0x21 && c <= 0x7e) || (c >= 0xc0 && c <= 0x17f && c !== 0xd7 && c !== 0xf7);
+    });
+  }
+  function isCharsMsg(msg) {
+    return /\btext_(character_not_allowed|multiline)\b/.test(String(msg));
+  }
+  return { problems: problems, localOk: localOk, isCharsMsg: isCharsMsg };
+};
+(function partnerForm(cfg, doc) {
   'use strict';
   var L = cfg.limits;
-  // [S8856] same set as backend _CONTROL: control chars + Bidi_Control + zero-width
-  var CONTROL = /[\u0000-\u001f\u007f-\u009f\u2028\u2029\u061c\u200b-\u200f\u202a-\u202e\u2066-\u2069\ufeff]/;
-  var CONTROL_IN_MESSAGE = /[\u0000-\u0008\u000b-\u001f\u007f-\u009f\u2028\u2029\u061c\u200e\u200f\u202a-\u202e\u2066-\u2069]/;  // [S8856] bidi controls refused, zero-width joiners kept (emoji)
+  // [S12841/S12842] the server's character ALLOW LIST: ONE implementation, lib/textrules.mjs `textRules` (the same function text is
+  // inlined ahead of this one in the shipped script, and imported here for Node), shared with the waitlist form.
+  var rules = textRules(cfg.allow);
+  var textProblems = rules.problems;
+  var localOk = rules.localOk;
+  // [S12841] fields that failed ONLY because of a character (not length / shape) -> the friendly "unusable character" copy
+  var why = {};
+  function charsBad(field, txt, multilineOk) {
+    var p = textProblems(txt);
+    if (multilineOk) p = p.filter(function (x) { return x !== 'text_multiline'; });
+    if (p.length) why[field] = 'chars';
+    return p.length > 0;
+  }
   var EMAIL_RE = /^[^@\s<>"',;()\[\]\\]{1,64}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,62}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,62}[A-Za-z0-9])?)+$/u;
   var HOST_RE = /^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,62}[A-Za-z0-9])?\.)+[A-Za-z]{2,63}$/;
   var HANDLE_RE = new RegExp('^@?[A-Za-z0-9._-]{1,' + L.HANDLE_MAX + '}$');
@@ -181,22 +269,24 @@
   function len(s) { return Array.from(s).length; }
   function text(v) { return String(v === null || v === void 0 ? '' : v); }
   // false = invalid, null = empty optional field, a string = what we send
-  function line(v, max, min) {
+  function line(v, max, min, field) {
     v = text(v).normalize('NFC').trim();
-    if (CONTROL.test(v)) return false;
+    if (charsBad(field, v, false)) return false;
     var n = len(v);
     return n >= min && n <= max ? v : false;
   }
-  function optional(v, max) {
+  function optional(v, max, field) {
     v = text(v).normalize('NFC').trim();
-    return v ? line(v, max, 1) : null;
+    return v ? line(v, max, 1, field) : null;
   }
   function email(v) {
-    v = text(v).trim();
-    return len(v) <= L.EMAIL_MAX && !CONTROL.test(v) && EMAIL_RE.test(v) ? v : false;
+    v = text(v).normalize('NFC').trim();
+    if (len(v) > L.EMAIL_MAX || !EMAIL_RE.test(v)) return false;
+    if (!localOk(v.slice(0, v.lastIndexOf('@')))) { why.email = 'chars'; return false; }
+    return v;
   }
   function social(v) {
-    v = optional(v, L.SOCIAL_MAX);
+    v = optional(v, L.SOCIAL_MAX, 'social');
     if (v === null || v === false) return v;
     if (/\s/u.test(v)) return false;
     var isUrl = URL_START.test(v) || (v.charAt(0) !== '@' && (v.indexOf('.') >= 0 || v.indexOf('/') >= 0));
@@ -209,14 +299,16 @@
   function message(v) {
     v = text(v).normalize('NFC').replace(/\r\n/g, '\n').trim();
     if (!v) return null;
-    return CONTROL_IN_MESSAGE.test(v) || len(v) > L.MESSAGE_MAX ? false : v;
+    if (charsBad('message', v, true)) return false;
+    return len(v) > L.MESSAGE_MAX ? false : v;
   }
   function check(v) {
+    why = {};
     var out = {
       role: cfg.roles.indexOf(v.role) >= 0 ? v.role : false,
-      name: line(v.name, L.NAME_MAX, L.NAME_MIN),
+      name: line(v.name, L.NAME_MAX, L.NAME_MIN, 'name'),
       email: email(v.email),
-      university: optional(v.university, L.UNIVERSITY_MAX),
+      university: optional(v.university, L.UNIVERSITY_MAX, 'university'),
       social: social(v.social),
       message: message(v.message),
       adult: v.adult === true ? true : false,
@@ -228,6 +320,7 @@
     errors.sort(function (a, b) { return FIELDS.indexOf(a) - FIELDS.indexOf(b); });
     return {
       errors: errors,
+      reasons: why,
       body: {
         role: out.role,
         name: out.name,
@@ -269,9 +362,13 @@
     });
     return v;
   }
-  function mark(name, on) {
-    var err = doc.getElementById('elci-' + name + '-error');
-    if (err) err.hidden = !on;
+  // [S12841] `why` 'chars' = the field failed only because of a character the server would refuse: its own friendlier line
+  function mark(name, on, why) {
+    var plain = doc.getElementById('elci-' + name + '-error');
+    var chars = doc.getElementById('elci-' + name + '-chars');
+    var err = on && why === 'chars' && chars ? chars : plain;
+    if (plain) plain.hidden = !(on && err === plain);
+    if (chars) chars.hidden = !(on && err === chars);
     if (on) shown[name] = true; else delete shown[name];
     controls(name).forEach(function (c) {
       var hint = c.getAttribute('data-hint') || '';
@@ -279,6 +376,10 @@
       if (on) c.setAttribute('aria-invalid', 'true'); else c.removeAttribute('aria-invalid');
       if (ids) c.setAttribute('aria-describedby', ids); else c.removeAttribute('aria-describedby');
     });
+  }
+  // every marked field failed only on a character -> the one "unusable character" line, else the generic one
+  function onlyChars(names, reasons) {
+    return names.length > 0 && names.every(function (n) { return reasons[n] === 'chars'; });
   }
   function say(kind) {
     while (alertBox.firstChild) alertBox.removeChild(alertBox.firstChild);
@@ -299,22 +400,25 @@
   }
   function revalidate() {
     if (!Object.keys(shown).length) return;
-    var errors = check(read()).errors;
-    Object.keys(shown).forEach(function (n) { if (errors.indexOf(n) < 0) mark(n, false); });
+    var res = check(read());
+    Object.keys(shown).forEach(function (n) { if (res.errors.indexOf(n) < 0) mark(n, false); else mark(n, true, res.reasons[n]); });
     if (!Object.keys(shown).length) say(null);
   }
   function serverErrors(j) {
     var list = j && j.detail && j.detail.length ? j.detail : [];
     var names = [];
+    var reasons = {};
     list.forEach(function (e) {
       var loc = e && e.loc ? e.loc : [];
       var n = loc.length > 1 ? String(loc[1]) : '';
       if (!n) n = ((/\b(university|social) is required/.exec(String(e && e.msg)) || [])[1]) || '';
       if (FIELDS.indexOf(n) >= 0 && names.indexOf(n) < 0) names.push(n);
+      // S12840: the server's two stable text codes ("Value error, text_character_not_allowed[,text_multiline]")
+      if (FIELDS.indexOf(n) >= 0 && rules.isCharsMsg(e && e.msg)) reasons[n] = 'chars';
     });
     if (!names.length) return say('failed');
-    names.forEach(function (n) { mark(n, true); });
-    say('invalid');
+    names.forEach(function (n) { mark(n, true, reasons[n]); });
+    say(onlyChars(names, reasons) ? 'chars' : 'invalid');
     focusFirst(names);
   }
   function send(body) {
@@ -370,16 +474,16 @@
     e.preventDefault();
     if (busy) return;
     var res = check(read());
-    FIELDS.forEach(function (n) { mark(n, res.errors.indexOf(n) >= 0); });
+    FIELDS.forEach(function (n) { mark(n, res.errors.indexOf(n) >= 0, res.reasons[n]); });
     if (res.errors.length) {
-      say('invalid');
+      say(onlyChars(res.errors, res.reasons) ? 'chars' : 'invalid');
       focusFirst(res.errors);
       return;
     }
     send(res.body);
   });
   syncRequired();
-})({"url":"https://api.wybber.com/api/partner-applications","noticeVersion":"partner-kvkk-2026-10-21","limits":{"NAME_MIN":2,"NAME_MAX":100,"EMAIL_MAX":254,"UNIVERSITY_MAX":150,"SOCIAL_MAX":200,"HANDLE_MAX":64,"MESSAGE_MAX":1000},"roles":["student","creator","community"],"requires":{"student":"university","creator":"social"}}, document);</script>
+})({"url":"https://api.wybber.com/api/partner-applications","allow":{"normalization":"NFC","input_must_be_normalized":true,"multiline":[9,10],"single":[[32,126],[161,161],[163,163],[169,171],[174,174],[176,176],[183,183],[186,187],[191,214],[216,246],[248,383],[8211,8212],[8216,8218],[8220,8222],[8226,8226],[8230,8230],[8249,8250],[8364,8364],[8378,8378],[8482,8482]],"emoji_base":[[169,169],[174,174],[8252,8252],[8265,8265],[8482,8482],[8505,8505],[8596,8601],[8617,8618],[8986,8987],[9000,9000],[9096,9096],[9167,9167],[9193,9203],[9208,9210],[9410,9410],[9642,9643],[9654,9654],[9664,9664],[9723,9726],[9728,9733],[9735,9746],[9748,9861],[9872,9989],[9992,10002],[10004,10004],[10006,10006],[10013,10013],[10017,10017],[10024,10024],[10035,10036],[10052,10052],[10055,10055],[10060,10060],[10062,10062],[10067,10069],[10071,10071],[10083,10087],[10133,10135],[10145,10145],[10160,10160],[10175,10175],[10548,10549],[11013,11015],[11035,11036],[11088,11088],[11093,11093],[12336,12336],[12349,12349],[12951,12951],[12953,12953],[126976,127019],[127024,127123],[127136,127150],[127153,127167],[127169,127183],[127185,127221],[127245,127247],[127279,127279],[127340,127345],[127358,127359],[127374,127374],[127377,127386],[127405,127405],[127489,127490],[127514,127514],[127535,127535],[127538,127546],[127568,127569],[127584,127589],[127744,127994],[128000,128317],[128326,128591],[128640,128727],[128732,128748],[128752,128764],[128884,128886],[128891,128895],[128981,128985],[128992,129003],[129008,129008],[129200,129211],[129216,129217],[129292,129338],[129340,129349],[129351,129619],[129632,129645],[129648,129660],[129664,129673],[129679,129734],[129742,129756],[129759,129769],[129776,129784]],"emoji_vs16":65039,"emoji_modifier":[127995,127999],"emoji_zwj":8205,"regional_indicator":[127462,127487],"keycap_bases":[35,42,48,49,50,51,52,53,54,55,56,57],"keycap_mark":8419},"noticeVersion":"partner-kvkk-2026-10-21","limits":{"NAME_MIN":2,"NAME_MAX":100,"EMAIL_MAX":254,"UNIVERSITY_MAX":150,"SOCIAL_MAX":200,"HANDLE_MAX":64,"MESSAGE_MAX":1000},"roles":["student","creator","community"],"requires":{"student":"university","creator":"social"}}, document); })();</script>
 <script defer src="https://stats.wybber.com/s.js" data-website-id="62435756-fcc3-4ed5-b4a5-664bd0b07bfe" data-do-not-track="true" data-domains="www.wybber.com,wybber.com"></script>
 </body>
 </html>
